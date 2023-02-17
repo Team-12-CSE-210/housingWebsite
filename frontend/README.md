@@ -8,6 +8,9 @@ In the project directory, you can run:
 
 ### `npm start`
 
+If it shows error regarding react-scripts then it must be due to not having node-modules folder. Run the following line instead :
+
+### `npm install` or `npm install react-scripts --save`
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
