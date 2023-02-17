@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './card'
 import PageButton from './pageButton'
 import '../styles/card.css';
-import { useMemo, useEffect } from "react"; 
+import { useMemo, useEffect } from "react";
 
 class CardList extends React.Component {
     constructor(props) {
@@ -16,7 +16,7 @@ class CardList extends React.Component {
         })
     }
 
-    componentDidMount(){
+    componentDidMount() {
         var propertyInfo = [
             {
                 id: 1,
@@ -77,15 +77,21 @@ class CardList extends React.Component {
     render() {
         return (
             <div>
+                <br></br>
                 <div className="row">
-                {this.state.propertyInfo.slice((this.state.currentPage-1)*6,Math.min((this.state.currentPage-1)*6+6,this.state.len)).map(item => (
-                    <div className="column" key ={item.id}>
-                    <Card key={item.id} name={item.Name} Address={item.Address} Facilities={item.Facilities}></Card>
-                    </div>
-                ))}
+                    {this.state.propertyInfo.slice((this.state.currentPage - 1) * 6, Math.min((this.state.currentPage - 1) * 6 + 6, this.state.len)).map(item => (
+                        <div className="column" key={item.id}>
+                            <Card key={item.id} name={item.Name} Address={item.Address} Facilities={item.Facilities}></Card>
+                            <br></br>
+                        </div>
+                    ))}
                 </div>
-                {this.state.pages && <PageButton pages={this.state.pages} currentPage={this.state.currentPage} handler={this.handler}></PageButton>}
+                <br></br>
+                <br></br>
+                <div className="pageButton">
+                    {this.state.pages && <PageButton pages={this.state.pages} currentPage={this.state.currentPage} handler={this.handler}></PageButton>}
                 </div>
+            </div>
         )
     }
 }

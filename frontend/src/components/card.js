@@ -10,6 +10,7 @@ class Card extends React.Component{
         return (
             <div className="card">
                 <div className="container">
+                    <img src={require('../pictures_test/1.jpeg')} />
                     <h4><b>{this.state.Name}</b></h4>
                     <p>{this.state.Address}</p>
                     <p>{this.state.Facilities}</p>

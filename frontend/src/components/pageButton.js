@@ -4,24 +4,27 @@ import '../styles/button.css';
 class PageButton extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { pages: this.props.pages, currentPage: this.props.currentPage,arr: [] };
+        this.state = { pages: this.props.pages, currentPage: this.props.currentPage, arr: [] };
     }
-    componentDidMount(){
+    componentDidMount() {
         var i = 1;
         var len = this.state.pages;
         var p = [];
-        while(i<=len){
+        while (i <= len) {
             p.push(i);
             i++;
         }
-        this.setState({arr:p});
+        this.setState({ arr: p });
     }
     render() {
-        var handleToUpdate = this.props.handler;
+        var handleToUpdate = (i)=>{
+            this.props.handler(i);
+            this.setState({currentPage:i});
+        }
         return (
             <div className="pagination">
-            {this.state.arr.map(i => (
-                        <button className="button" value={i} onClick={() => handleToUpdate(i)} key={i}>{i}</button>
+                {this.state.arr.map(i => (
+                    <button className={i === this.state.currentPage ? "active" : "button"} value={i} onClick={() => handleToUpdate(i)} key={i}>{i}</button>
                 ))}
             </div>
         )
