@@ -6,7 +6,7 @@ function Footer() {
         <div className = "footer">
             <a href = "/" className='home-link'> Lysta </a>
             <div className="line"> | </div>
-            <a href = "/help"> Help </a>
+            <a href = "./Helper.html"> Help </a>
         </div>
     );
 }
