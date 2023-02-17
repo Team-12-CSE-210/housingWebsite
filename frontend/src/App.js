@@ -30,6 +30,7 @@ function App() {
       <BasicButtonExample />
       <TypeHouse />
       <RatingDrop />
+      
     </div>
 
     // <div>
