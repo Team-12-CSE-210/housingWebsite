@@ -1,0 +1,24 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 99.4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3%;
+    background-color: #A2ABCB;
+}
+  
+.footer a {
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+}
+
+a.home-link {
+    font-size: 18px;
+}
+
+.line {
+    margin: 0% 1% 0% 1%;
+}
