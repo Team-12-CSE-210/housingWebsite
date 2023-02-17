@@ -8,6 +8,10 @@ import SearchBar from './components/searchBar.js';
 import TypeHouse from './components/Type_dropdown';
 import Data from './Data.json';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SelectVariants from './components/BedBath';
+import MultipleSelectCheckmarks from './components/TypeCheckmark';
+import AmenitiesMultipleSelectCheckmarks from './components/Amenities';
+import RatingSelectVariants from './components/Rating';
 // import SearchBar from './components/searchBar';
 // const user = {
 //   name: 'Hedy Lamarr',
@@ -29,8 +33,11 @@ function App() {
       <SearchBar placeholder="Enter Address/Name/Zipcode" data={Data}/>
       <BasicButtonExample />
       <TypeHouse />
+      <MultipleSelectCheckmarks />
+      <RatingSelectVariants />
       <RatingDrop />
-      
+      <SelectVariants /> 
+      <AmenitiesMultipleSelectCheckmarks />
     </div>
 
     // <div>
