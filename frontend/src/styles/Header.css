@@ -1,0 +1,37 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .35%;
+    background-color: #A2ABCB;
+  }
+  
+.navigation-links {
+    padding: 0% 0% 0% 1%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+}
+
+.navigation-links a {
+    margin-right: 12%;
+    color: #000000;
+    text-decoration: none;
+    font-size: 175%;
+}
+
+.account-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+}
+
+.account-buttons button {
+    margin-right: 2%;
+    background-color: #C67588;
+    padding: 1.5%;
+    font-size: 125%;
+    width: 25%;
+}
