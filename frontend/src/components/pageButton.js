@@ -16,15 +16,15 @@ class PageButton extends React.Component {
         }
         this.setState({ arr: p });
     }
+    handleToUpdate = (i)=>{
+        this.props.handler(i);
+        this.setState({currentPage:i});
+    }
     render() {
-        var handleToUpdate = (i)=>{
-            this.props.handler(i);
-            this.setState({currentPage:i});
-        }
         return (
             <div className="pagination">
                 {this.state.arr.map(i => (
-                    <button className={i === this.state.currentPage ? "active" : "button"} value={i} onClick={() => handleToUpdate(i)} key={i}>{i}</button>
+                    <button className={i === this.state.currentPage ? "active" : "button"} value={i} onClick={() => this.handleToUpdate(i)} key={i}>{i}</button>
                 ))}
             </div>
         )

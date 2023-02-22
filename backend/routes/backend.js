@@ -1,69 +1,27 @@
 const express = require('express');
 const router = express.Router();
+const listing = require("../models/model");
 
+
+router.get('/all-property-details', async (req, res) => {
+  try {
+    const properties = await listing.find({}, null, { limit: 18 });
+    res.status(200).send({ success: true, data: properties });
+  }
+  catch (err) {
+    res.status(500).send({ success: false, properties: [], message: 'Something went wrong!' });
+  }
+});
 
 router.get('/property-details', async (req, res) => {
-    try {
-      const result = [
-        {
-            id: 1,
-            Name: 'prop1',
-            Address: 'address1',
-            Facilities: 'Bathrooom bedroom'
-        },
-        {
-            id: 2,
-            Name: 'prop2',
-            Address: 'address1',
-            Facilities: 'Bathrooom bedroom'
-        },
-        {
-            id: 3,
-            Name: 'prop3',
-            Address: 'address1',
-            Facilities: 'Bathrooom bedroom'
-        },
-        {
-            id: 4,
-            Name: 'prop4',
-            Address: 'address1',
-            Facilities: 'Bathrooom bedroom'
-        },
-        {
-            id: 5,
-            Name: 'prop5',
-            Address: 'address1',
-            Facilities: 'Bathrooom bedroom'
-        },
-        {
-            id: 6,
-            Name: 'prop6',
-            Address: 'address1',
-            Facilities: 'Bathrooom bedroom'
-        }, {
-            id: 7,
-            Name: 'prop7',
-            Address: 'address1',
-            Facilities: 'Bathrooom bedroom'
-        },
-        {
-            id: 8,
-            Name: 'prop8',
-            Address: 'address1',
-            Facilities: 'Bathrooom bedroom'
-        },
-        {
-            id: 9,
-            Name: 'prop9',
-            Address: 'address1',
-            Facilities: 'Bathrooom bedroom'
-        }
-    ];
-        res.status(200).send(result);
-    }
-    catch (err) {
-      res.status(500).send({ success: false, properties: [], message: 'Something went wrong!' });
-    }
-  });
+  try {
+    const { id } = req.query;
+    const properties = await listing.findOne({id}, null, { limit: 18 });
+    res.status(200).send({ success: true, data: properties });
+  }
+  catch (err) {
+    res.status(500).send({ success: false, properties: [], message: 'Something went wrong!' });
+  }
+});
 
-  module.exports = router;
+module.exports = router;

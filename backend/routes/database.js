@@ -3,7 +3,7 @@ const router = express.Router();
 const listing = require("../models/model");
 
 router.route("/insertinitial").post(function(req, res) {
-    var data = require('listing.json');
+    var data = require('./listing.json');
     listing.insertMany(data, function(err, result) {
         if (err) {
         res.send(err);
