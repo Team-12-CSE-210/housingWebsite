@@ -24,7 +24,6 @@ var imageRouter = require('./routes/image');
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-<<<<<<< HEAD
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 
@@ -63,14 +62,6 @@ app.use('/', indexRouter);
 app.use('/api/', listingRouter);
 app.use('/api/', userRouter);
 app.use('/api/', imageRouter(upload));
-=======
-// catch 404 and forward to error handler
-
-app.use('/', indexRouter);
-app.use('/api/', backendRouter);
-app.use('/api/', databaseRouter);
-
->>>>>>> c3f967a (Merged main branch manually)
 
 app.use(function(req, res, next) {
     next(createError(404));

@@ -96,11 +96,7 @@ input[type=date] {
     width: calc(90.45% - 120px);
 }
 
-<<<<<<< HEAD
 input[name=landlordName] input[name=email] input[name=phone]{
-=======
-input[name=landlord] {
->>>>>>> c3f967a (Merged main branch manually)
     width: calc(90% - 120px);
 }
 

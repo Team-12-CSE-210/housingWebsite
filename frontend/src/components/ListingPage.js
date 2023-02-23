@@ -64,7 +64,6 @@ class ListingPage extends React.Component {
         })
     }
     
-<<<<<<< HEAD
     async handleSubmit(event) {
         event.preventDefault();
         alert(`TODO: check if required fields are filled`);
@@ -122,17 +121,6 @@ class ListingPage extends React.Component {
             console.log("done");
             // TODO: go to success page
         });
-=======
-    handleSubmit(event) {
-        alert(`TODO: submit to backend - ${this.state.propertyName} ${this.state.description}
-        ${this.state.availabilityDate} ${this.state.address} ${this.state.price}
-        ${this.state.sqft} ${this.state.bedrooms} ${this.state.bathrooms}
-        ${this.state.propertyType} ${this.state.hasGym} ${this.state.hasPool}
-        ${this.state.hasLaundry} ${this.state.hasFurnishings} ${this.state.hasAC}
-        ${this.state.files}\n
-        and check if required fields are filled`);
-        event.preventDefault();
->>>>>>> c3f967a (Merged main branch manually)
     }
 
     
@@ -228,7 +216,6 @@ class ListingPage extends React.Component {
                             checked={this.state.hasAC}
                             onChange={this.handleChange}/>
                     </div>
-<<<<<<< HEAD
                     <div class="amenity">
                         <label for="checkbox">Kitchen</label>
                         <input
@@ -245,14 +232,11 @@ class ListingPage extends React.Component {
                             checked={this.state.allowsPets}
                             onChange={this.handleChange}/>
                     </div>
-=======
->>>>>>> c3f967a (Merged main branch manually)
                 </div>
                 <p>
                     <div class="row">
                         <div class="landlordcolumn left">
                             <label>Your Name</label>
-<<<<<<< HEAD
                             <input name="landlordName" type="text" value={this.state.landlordName} onChange={this.handleChange}/>
                         </div>
                         <div class="landlordcolumn mid">
@@ -262,17 +246,6 @@ class ListingPage extends React.Component {
                         <div class="landlordcolumn right">
                             <label>Email</label>
                             <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
-=======
-                            <input name="landlord" type="text" value={this.state.landlordName} onChange={this.handleChange}/>
-                        </div>
-                        <div class="landlordcolumn mid">
-                            <label>Phone</label>
-                            <input name="landlord" type="tel" value={this.state.phone} onChange={this.handleChange}/>
-                        </div>
-                        <div class="landlordcolumn right">
-                            <label>Email</label>
-                            <input name="landlord" type="email" value={this.state.email} onChange={this.handleChange}/>
->>>>>>> c3f967a (Merged main branch manually)
                         </div>
                     </div>
                 </p>
