@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./searchBar.css";
+import "../styles/searchBar.css";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 
