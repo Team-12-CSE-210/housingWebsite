@@ -1,13 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 .App{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
-/* .rowC{display:flex; flex-direction:row;} */
-/* body {
-  padding: 0;
-  margin: 0;
-} */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
