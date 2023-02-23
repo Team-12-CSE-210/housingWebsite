@@ -17,14 +17,6 @@ class SelectDropdown extends React.Component {
         console.log(value);
         this.setState({count : value});
     };   
-//   const [Bedrooms, setBedrooms] = React.useState('');
-//   const [Bathrooms, setBathrooms] = React.useState('');
-//   const handleChange = (event) => {
-//     setBedrooms(event.target.value);
-//   };
-//   const handleChange2 = (event) => {
-//     setBathrooms(event.target.value);
-//   };
     render() {
 
         return (

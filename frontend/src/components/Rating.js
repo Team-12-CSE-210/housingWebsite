@@ -25,15 +25,6 @@ export default function RatingSelectVariants() {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {/* <MenuItem value={"Varying"}>
-          <Rating
-                name="simple-controlled"
-                value={RatingVal}
-                onChange={(event, newValue) => {
-                setRatingVal(newValue);
-                }}
-            />
-            </MenuItem> */}
           <MenuItem value={"1*"}><Rating name="read-only" value="1" readOnly /></MenuItem>
           <MenuItem value={"2*"}><Rating name="read-only" value="2" readOnly /></MenuItem>
           <MenuItem value={"3*"}><Rating name="read-only" value="3" readOnly /></MenuItem>
