@@ -33,9 +33,9 @@ class CardList extends React.Component {
         return (
             <div>
                 <br></br>
-                <div className="row">
+                <div className="row-card">
                     {this.state.propertyInfo.slice((this.state.currentPage - 1) * 6, Math.min((this.state.currentPage - 1) * 6 + 6, this.state.len)).map(item => (
-                        <div className="column" key={item.id}>
+                        <div className="column-card" key={item.id}>
                             <Card key={item.id} id={item.id} name={item.Name} Address={item.Address} Facilities={item.Facilities} price={item.Price}></Card>
                             <br></br>
                         </div>

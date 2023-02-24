@@ -23,7 +23,7 @@
   }
   
   /* Float four columns side by side */
-  .column {
+  .column-card {
     float: left;
     width: 33%;
     padding: 0 10px;
@@ -34,10 +34,10 @@
     width: 8em
   }
   /* Remove extra left and right margins, due to padding in columns */
-  .row {margin: 0 -5px;}
+  .row-card {margin: 0 -5px;}
   
   /* Clear floats after the columns */
-  .row:after {
+  .row-card:after {
     content: "";
     display: table;
     clear: both;
