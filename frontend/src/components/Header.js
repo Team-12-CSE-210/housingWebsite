@@ -4,9 +4,8 @@ import '../styles/Header.css'
 function Header() {
     return (
         <div className='header'>
-            
             <div className='navigation-links'>
-                <a href="/"> <img src={require('../logo.png')} alt="" width={60} height={60} /> Lysta </a>
+                <a href="/"> <img src={require('../logo.png')} alt="" width={60} height={60} />Lysta</a>
                 <a href="/rent"> Rent </a>
                 <a href="/list"> List </a>
                 <a href="/help"> Help </a>

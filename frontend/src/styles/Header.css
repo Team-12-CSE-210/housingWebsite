@@ -7,7 +7,8 @@
     justify-content: space-between;
     align-items: center;
     padding: .35%;
-    background-color: #fafafa;
+    background-color: #ffffff;
+	border-radius: 0px 0px 20px 20px;
   }
   
 .navigation-links {
@@ -19,10 +20,10 @@
 }
 
 .navigation-links a {
-    margin-right: 12%;
+    margin-right: 10%;
     color: #000000;
     text-decoration: none;
-    font-size: 175%;
+    font-size: 150%;
 }
 
 .navigation-links a1 {
