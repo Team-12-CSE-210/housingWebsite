@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/card.css';
+import GoogleApiWrapper  from './mapContainer';
 
 class PropertyData extends React.Component {
     constructor(props) {
@@ -41,6 +42,7 @@ class PropertyData extends React.Component {
                         <p>Pool: {this.state.propInfo.pool?'Yes':'No'}</p>
                         <p>Gym: {this.state.propInfo.gym?'Yes':'No'}</p>
                 </div>
+                <GoogleApiWrapper name={this.state.propInfo.name} lat={this.state.propInfo.latitude} lng={this.state.propInfo.longitude}></GoogleApiWrapper>
             </div>
         )
     }

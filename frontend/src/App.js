@@ -7,7 +7,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ListingPage from './components/ListingPage'
 
-
 class App extends React.Component {
   render(){
     return (
