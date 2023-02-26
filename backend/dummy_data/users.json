@@ -1,0 +1,29 @@
+[
+    {
+        "first_name": "Test",
+        "last_name": "User",
+        "email": "test@gmail.com",
+        "phone_number": "0123456789",
+        "password": "password",
+        "favorites": [1, 2, 3],
+        "preperties": [4]
+    },
+    {
+        "first_name": "Oliver",
+        "last_name": "Chen",
+        "email": "oliverchen95@yahoo.com",
+        "phone_number": "4752155123",
+        "password": "password",
+        "favorites": [3, 4, 5],
+        "preperties": []
+    },
+    {
+        "first_name": "Kiera",
+        "last_name": "Murphy",
+        "email": "kieramurphy43@gmail.com",
+        "phone_number": "4155550198",
+        "password": "password",
+        "favorites": [],
+        "preperties": [6, 7]
+    }
+]
