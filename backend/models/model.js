@@ -24,4 +24,37 @@ let listing = new Schema({
     parking: {type: Boolean},
   });
 
-module.exports = mongoose.model("listings", listing);
+listing_model = mongoose.model("listings", listing);
+
+let users = new Schema({
+    first_name: {type: String},
+    last_name: {type: String},
+    email: {type: String},
+    phone_number: {type: String},
+    password: {type: String},
+    favorites : [Number],
+    properties: [Number]
+});
+users_model = mongoose.model("users", users)
+// module.exports = mongoose.model("listings", listing);
+
+
+let ImageSchema = new Schema({
+    filename: {
+        required: true,
+        type: String,
+    },
+    propertID: {
+        required: true,
+        type: String,
+    }
+});
+
+images_model = mongoose.model("images", users)
+
+
+module.exports = {
+   listings:listing_model,
+   users:users_model,
+   images:images_model
+};
