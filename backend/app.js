@@ -1,11 +1,8 @@
 var path = require('path');
 var express = require('express');
-const mongoose = require("mongoose");
 const cors = require('cors');
 const env = require('./env');
 var createError = require('http-errors');
-const listing = require("./models/model");
-var data = require('./routes/listing.json');
 
 
 var app = express();
@@ -40,15 +37,6 @@ app.use(function (err, req, res, next) {
 const PORT = env.port;
 app.listen(PORT, () => {
     console.log(`Housing backend service is running on port ${PORT}.`);
-});
-
-
-var uri = "mongodb://localhost:27017/kennel";
-mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
-const connection = mongoose.connection;
-connection.once("open", function() {
-  console.log("MongoDB database connection established successfully");
-  //listing.insertMany(data);
 });
 
 module.exports = app

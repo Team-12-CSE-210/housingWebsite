@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ListingPage from './components/ListingPage'
 import Faq from './components/faq';
+import SignUpPage from './components/SignUpPage';
 
 class App extends React.Component {
   render(){
@@ -15,10 +16,11 @@ class App extends React.Component {
         <div>
           <Header />
           <Routes>
-             <Route exact path="/" element={<CardList/>}/>
+            <Route exact path="/" element={<CardList/>}/>
             <Route exact path="/property-info/" element={<PropertyData/>}/>
             <Route path="/list" element={<ListingPage />} />
             <Route path="/help" element={<Faq />} />
+            <Route path="/signup" element={<SignUpPage />} />
           </Routes>
         </div>
       </Router>

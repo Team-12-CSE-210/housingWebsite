@@ -13,7 +13,9 @@ function Header() {
             </div>
             <div className='account-buttons'>
                 <button>Login</button>
-                <button>Register</button>
+                <Link to="/signup">
+                    <button>Sign Up</button>
+                </Link>
             </div>
         </div>
     );
