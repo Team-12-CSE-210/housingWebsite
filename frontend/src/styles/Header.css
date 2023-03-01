@@ -3,13 +3,21 @@
     justify-content: space-between;
     align-items: center;
     padding: .35%;
-    background-color: #A2ABCB;
+    background-color: #ffffff;
   }
   
 .navigation-links {
     padding: 0% 0% 0% 1%;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+}
+
+.navigation-links1 {
+    padding: 0% 0% 0% 1%;
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
     width: 50%;
 }
@@ -28,10 +36,55 @@
     width: 30%;
 }
 
+
 .account-buttons button {
     margin-right: 2%;
-    background-color: #C67588;
+    background-color: #b32c38;
     padding: 1.5%;
     font-size: 125%;
     width: 25%;
+    /* position: static; */
+    display: block;
+    /* margin: auto auto auto auto; */
+    padding: 10px 10px;
+    color: #ffffff;
+    font-size:14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: .08em;
+    border-radius: 0;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.account-buttons a {
+    margin-right: 2%;
+    background-color: #b32c38;
+    padding: 1.5%;
+    font-size: 125%;
+    width: 25%;
+    /* position: static; */
+    display: block;
+    /* margin: auto auto auto auto; */
+    padding: 10px 10px;
+    color: #ffffff;
+    font-size:14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: .08em;
+    border-radius: 0;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
 }

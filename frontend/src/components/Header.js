@@ -12,9 +12,12 @@ function Header() {
                 <Link to="/help"> Help </Link>
             </div>
             <div className='account-buttons'>
-                <button>Login</button>
-                <Link to="/signup">
-                    <button>Sign Up</button>
+                {/* <button className='account-buttons'>Login</button> */}
+                <Link to="/login" className='account-buttons' role='button'>
+                    Login
+                </Link>
+                <Link to="/signup" className='account-buttons' role='button'>
+                    Sign Up
                 </Link>
             </div>
         </div>
