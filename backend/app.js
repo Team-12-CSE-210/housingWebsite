@@ -3,23 +3,59 @@ var express = require('express');
 const cors = require('cors');
 const env = require('./env');
 var createError = require('http-errors');
-
+const methodOverride = require('method-override');
+const crypto = require('crypto');
+const multer = require('multer');
+const GridFsStorage = require('multer-gridfs-storage');
+const mongoose = require('mongoose');
 
 var app = express();
-var indexRouter = require('./routes/index');
-var backendRouter = require('./routes/backend');
-var databaseRouter = require('./routes/database');
 
+var indexRouter = require('./routes/index');
+var listingRouter = require('./routes/listing');
+var userRouter = require('./routes/user');
+var imageRouter = require('./routes/image');
 
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
-// catch 404 and forward to error handler
+app.use(methodOverride('_method'));
+
+const url = env.db_url;
+const promise = mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+
+// connect to the database
+const connect = mongoose.connection;
+connect.then(() => {
+  console.log('Connected to database: GridApp');
+}, (err) => console.log(err));
+
+// create storage engine
+const storage = new GridFsStorage({
+    db: promise,
+    file: (req, file) => {
+        return new Promise((resolve, reject) => {
+            crypto.randomBytes(16, (err, buf) => {
+                if (err) {
+                    return reject(err);
+                }
+                const filename = buf.toString('hex') + path.extname(file.originalname);
+                const fileInfo = {
+                    filename: filename,
+                    bucketName: 'housing'
+                };
+                resolve(fileInfo);
+            });
+        });
+    }
+});
+
+const upload = multer({ storage });
 
 app.use('/', indexRouter);
-app.use('/api/', backendRouter);
-app.use('/api/', databaseRouter);
-
+app.use('/api/', listingRouter);
+app.use('/api/', userRouter);
+app.use('/api/', imageRouter(upload));
 
 app.use(function(req, res, next) {
     next(createError(404));
