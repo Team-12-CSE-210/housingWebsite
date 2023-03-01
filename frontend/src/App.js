@@ -8,8 +8,17 @@ import Footer from './components/Footer';
 import ListingPage from './components/ListingPage'
 import Faq from './components/faq';
 import SignUpPage from './components/SignUpPage';
+import LoginPage from './components/LoginPage';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currUser: ""
+    };
+  }
+
+
   render(){
     return (
       <Router>
@@ -21,6 +30,7 @@ class App extends React.Component {
             <Route path="/list" element={<ListingPage />} />
             <Route path="/help" element={<Faq />} />
             <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/login" element={<LoginPage handleCurrUser={(firstName) => this.setState({ currUser: firstName })} />} />
           </Routes>
         </div>
       </Router>
