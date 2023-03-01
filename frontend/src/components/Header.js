@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Header.css'
+import '../styles/Header.css';
+import logo from '../logo.svg';
 
 function Header() {
     return (
         <div className='header'>
             <div className='navigation-links'>
-                <Link to="/"> Lysta </Link>
+                <Link to="/"> <img src={logo}> </img> 
+                    Lysta 
+                </Link>
                 <Link to="/rent"> Rent </Link>
                 <Link to="/list"> List </Link>
                 <Link to="/help"> Help </Link>
