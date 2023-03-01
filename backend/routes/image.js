@@ -20,6 +20,7 @@ module.exports = (upload) => {
 
     imageRouter.route('/upload_property_image')
         .post(upload.array('file', 10), (req, res, next) => {
+            console.log("receiving images: " + req.files.length);
             for (let i = 0; i < req.files.length; i++) {
                 let newImage = new Image({
                     propertyID: req.body.propertyID,
