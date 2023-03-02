@@ -1,9 +1,10 @@
 .header {
     display: flex;
+    grid-template-columns: 50px 1fr 50px;
     justify-content: space-between;
     align-items: center;
     padding: .35%;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
   }
   
 .navigation-links {
@@ -87,4 +88,13 @@
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
     transition: all 1s ease;
+}
+
+.maxwidth {
+    max-width: 50000cm !important;
+}
+
+.text1 {
+    font-size: 1.5rem !important;
+    padding: 1rem 2rem 1rem 2rem !important;
 }
