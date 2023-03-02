@@ -10,17 +10,21 @@ class Card extends React.Component {
     render() {
         return (
             <div className="card">
-                <div className="container">
-                    <img src={require('../pictures_test/1.jpeg')} />
-                    <h4><b>{this.state.Name}</b></h4>
-                    <p>{this.state.Address}</p>
+                <img src={require('../pictures_test/1.jpeg')} />
+                <div className="container1">
+                    
+                    <h3><b>${this.state.Price}</b></h3>
                     <p>{this.state.Facilities}</p>
-                    <p>Price: {this.state.Price} USD</p>
+                    <p>{this.state.Name}</p>
+                    <p className='address'>{this.state.Address}</p>
+                    
+                    
 
-                </div>
-                <div align="right" className="div-pad">
+                    <div align="right" className="div-pad">
                         <button className="button-34" role="button" onClick={event =>  window.location.href='/property-info?prop_id='+this.state.id}>-{'>'}</button>
                     </div>
+                </div>
+                
             </div>
         )
     }

@@ -27,7 +27,7 @@ function Header() {
         // </div>
         // </div>
 
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" className='navpad'>
             <Container className='maxwidth'>
                 <Navbar.Brand href="/">
                     {/* <img

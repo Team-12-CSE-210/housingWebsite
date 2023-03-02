@@ -41,11 +41,11 @@ class CardList extends React.Component {
                         </div>
                     ))}
                 </div>
-                <br></br>
-                <br></br>
-                <div align="center">
+
+                <div align="center" className='center'>
                     {this.state.pages && <PageButton pages={this.state.pages} currentPage={this.state.currentPage} handler={this.handler}></PageButton>}
                 </div>
+                <br></br>
             </div>
         )
     }
