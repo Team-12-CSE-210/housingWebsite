@@ -9,6 +9,7 @@ import ListingPage from './components/ListingPage'
 import Faq from './components/faq';
 import SignUpPage from './components/SignUpPage';
 import LoginPage from './components/LoginPage';
+import SearchBarFilters from './components/SearchBarFilters';
 
 class App extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class App extends React.Component {
         <div>
           <Header />
           <Routes>
-            <Route exact path="/" element={<CardList/>}/>
+            <Route exact path="/" element={<><SearchBarFilters /><CardList /></>}/>
             <Route exact path="/property-info/" element={<PropertyData/>}/>
             <Route path="/list" element={<ListingPage />} />
             <Route path="/help" element={<Faq />} />
