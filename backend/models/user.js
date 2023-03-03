@@ -9,7 +9,8 @@ let users = new Schema({
     phone_number: {type: String},
     password: {type: String},
     favorites : [Number],
-    properties: [Number]
+    properties: [Number],
+    reviewed:[Number]
 });
 const User = mongoose.model("users", users)
 

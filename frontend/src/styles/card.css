@@ -33,6 +33,7 @@
     margin-right: auto;
     width: 8em
   }
+  
   /* Remove extra left and right margins, due to padding in columns */
   .row-card {margin: 0 -5px;}
   
@@ -81,3 +82,23 @@
   .div-pad{
     padding: 10px 5px;
   }
+  .parent {
+    margin: 0rem;
+    padding: 2rem 2rem;
+    text-align: left;
+  }
+  .child {
+    display: inline-block;
+    padding: 1rem 1rem;
+    vertical-align: middle;
+    text-align: middle;
+  }
+
+  .myclass {
+    height: 20px;
+    position: relative;
+    border: 2px solid #cdcdcd;
+    border-color: rgba(0, 0, 0, .14);
+    background-color: AliceBlue;
+    font-size: 14px;
+}
