@@ -1,63 +1,21 @@
-import React, { useState } from "react";
-import "../styles/searchBar.css";
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 
 function SearchBar({ placeholder, data }) {
-  console.log(data);
-  const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
-
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
-      return value.address.toLowerCase().includes(searchWord.toLowerCase());
-    });
-
-    if (searchWord === "") {
-      setFilteredData([]);
-    } else {
-      setFilteredData(newFilter);
-    }
-  };
-
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
-  };
-
-  return (
-    <div className="search">
-      <div className="searchInputs">
-        <input
-          type="text"
-          placeholder={placeholder}
-          value={wordEntered}
-          onChange={handleFilter}
+    console.log(data);
+    return (
+        <Autocomplete
+            disablePortal
+            id="searchBar"
+            options={data}
+            sx={{ width: 300 }}
+            renderInput={(params) =><TextField {...params} placeholder={placeholder} />}
+            getOptionLabel={(option) => option.Address}
         />
-        <div className="searchIcon">
-          {filteredData.length === 0 ? (
-            <SearchIcon />
-          ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
-          )}
-        </div>
-      </div>
-      {filteredData.length !== 0 && (
-        <div className="dataResult">
-          {filteredData.slice(0, 15).map((value, key) => {
-            return (
-            // eslint-disable-next-line
-            //   <a className="dataItem" href={value.link} target="_blank">
-                <p className="dataItem">{value.address} </p>
-            //   </a>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
+    );
 }
 
 export default SearchBar;
