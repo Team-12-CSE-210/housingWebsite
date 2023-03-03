@@ -3,6 +3,8 @@ const router = express.Router();
 const Listing = require("../models/listing");
 const User = require("../models/user");
 const Reviews = require("../models/reviews");
+var maxId;
+
 router.get('/all-property-details', async (req, res) => {
   try {
     const properties = await Listing.find({}, null, { limit: 18 });
@@ -78,11 +80,28 @@ router.get('/property-details', async (req, res) => {
   }
 });
 
-router.route("/addListing").post(function (req, res) {
+router.get('/get-next-id', async (req, res) => {
+    try {
+      if (!maxId) {
+        const property = await Listing.find().sort({id: -1}).limit(1);
+        maxId = property[0]['id']
+      }
+      res.status(200).send({ success: true, id: ++maxId });   
+    }
+    catch (err) {
+      res.status(500).send({ success: false, properties: [], message: 'Something went wrong!' });
+      console.log(err)
+    }
+  });
+
+
+router.route("/addListing").post(async function (req, res) {
   var data = req.body
-  Listing.insertOne(data, function (err, result) {
+  Listing.create(data, function (err, result) {
     if (err) {
       res.send(err);
+    } else {
+      res.send(result)
     }
   });
 });
