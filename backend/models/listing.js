@@ -22,6 +22,11 @@ let listing = new Schema({
     pets: {type: Boolean},
     AC: {type: Boolean},
     parking: {type: Boolean},
+    property_type : {type: String},
+    landlord_name : {type: String},
+    landlord_email: {type: String},
+    landlord_phone_number : {type: String}
+
   });
 
 const Listing = mongoose.model("listings", listing);

@@ -17,8 +17,6 @@ while ((dirent = dir.readSync()) !== null) {
 }
 dir.closeSync();
 
-
-
 house = [];
 dir = fs.opendirSync('./dummy_data/images/house/');
 while ((dirent = dir.readSync()) !== null) {
