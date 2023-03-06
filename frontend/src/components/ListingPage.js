@@ -1,13 +1,15 @@
 import React from "react";
 import '../styles/ListingPage.css';
+import FormData from 'form-data';
+import axios from 'axios'
+
 class ListingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
             propertyName: "",
-            propertyImages: [],
             description: "",
-            availabilityDate: new Date().toLocaleDateString('en-CA'),
+            availabilityDate: new Date().toISOString().slice(0, 10),
             address: "",
             price: 0,
             sqft: 0,
@@ -19,6 +21,9 @@ class ListingPage extends React.Component {
             hasLaundry: false,
             hasFurnishings: false,
             hasAC: false,
+            hasKitchen: false,
+            allowsPets: false,
+            hasParking: false,
             landlordName: "",
             phone: "",
             email: "",
@@ -47,15 +52,63 @@ class ListingPage extends React.Component {
         })
     }
     
-    handleSubmit(event) {
-        alert(`TODO: submit to backend - ${this.state.propertyName} ${this.state.description}
-        ${this.state.availabilityDate} ${this.state.address} ${this.state.price}
-        ${this.state.sqft} ${this.state.bedrooms} ${this.state.bathrooms}
-        ${this.state.propertyType} ${this.state.hasGym} ${this.state.hasPool}
-        ${this.state.hasLaundry} ${this.state.hasFurnishings} ${this.state.hasAC}
-        ${this.state.files}\n
-        and check if required fields are filled`);
+    async handleSubmit(event) {
         event.preventDefault();
+        alert(`TODO: check if required fields are filled`);
+
+        const resId = await fetch("http://localhost:8001/api/get-next-id");
+        const resIdData = await resId.json();
+        const id = resIdData.id;
+
+        let resList = await fetch("http://localhost:8001/api/addListing", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                id: id,
+                name: this.state.propertyName,
+                address: this.state.address,
+                price: this.state.price,
+                number_bedroom: this.state.bedrooms,
+                number_bathroom: this.state.bathrooms,
+                sqr_ft: this.state.sqft,
+                available_date: this.state.availabilityDate,
+                description: this.state.description,
+                latitude: 0,
+                longitude: 0,
+                kitchen: this.state.hasKitchen,
+                gym: this.state.hasGym,
+                pool: this.state.hasPool,
+                laundry: this.state.hasLaundry,
+                furnished: this.state.hasFurnishings,
+                pets: this.state.allowsPets,
+                AC: this.state.hasAC,
+                parking: this.state.hasParking,
+                property_type: this.state.propertyType,
+                landlord_name: this.state.landlordName,
+                landlord_email: this.state.email,
+                landlord_phone_number: this.state.phone,
+            }),
+        });
+
+        const form = new FormData();
+        for (let img of this.state.files) {
+            form.append("file", img);
+        }
+        form.append("propertyID", id);
+        
+        let resImg = await axios({
+            method: "post",
+            url: "http://localhost:8001/api/upload_property_image",
+            data: form,
+            headers: { "Content-Type": "multipart/form-data" },
+        })
+        
+        Promise.all([resList, resImg]).then(() => {
+            console.log("done");
+            // TODO: go to success page
+        });
     }
 
     
@@ -151,20 +204,36 @@ class ListingPage extends React.Component {
                             checked={this.state.hasAC}
                             onChange={this.handleChange}/>
                     </div>
+                    <div class="amenity">
+                        <label for="checkbox">Kitchen</label>
+                        <input
+                            name="hasKitchen"
+                            type="checkbox"
+                            checked={this.state.hasKitchen}
+                            onChange={this.handleChange}/>
+                    </div>
+                    <div class="amenity">
+                        <label for="checkbox">Pets</label>
+                        <input
+                            name="allowsPets"
+                            type="checkbox"
+                            checked={this.state.allowsPets}
+                            onChange={this.handleChange}/>
+                    </div>
                 </div>
                 <p>
                     <div class="row">
                         <div class="landlordcolumn left">
                             <label>Your Name</label>
-                            <input name="landlord" type="text" value={this.state.landlordName} onChange={this.handleChange}/>
+                            <input name="landlordName" type="text" value={this.state.landlordName} onChange={this.handleChange}/>
                         </div>
                         <div class="landlordcolumn mid">
                             <label>Phone</label>
-                            <input name="landlord" type="tel" value={this.state.phone} onChange={this.handleChange}/>
+                            <input name="phone" type="tel" value={this.state.phone} onChange={this.handleChange}/>
                         </div>
                         <div class="landlordcolumn right">
                             <label>Email</label>
-                            <input name="landlord" type="email" value={this.state.email} onChange={this.handleChange}/>
+                            <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
                         </div>
                     </div>
                 </p>
