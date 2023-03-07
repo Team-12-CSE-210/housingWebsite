@@ -96,7 +96,7 @@ input[type=date] {
     width: calc(90.45% - 120px);
 }
 
-input[name=landlord] {
+input[name=landlordName] input[name=email] input[name=phone]{
     width: calc(90% - 120px);
 }
 
