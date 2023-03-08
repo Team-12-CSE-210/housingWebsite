@@ -18,28 +18,36 @@ function SignUpPage() {
                 password: password,
             }),
         });
-        
+
         let resJSONformat = res.json();
         // can use resJSONformat to check status of response
-        
+
 
     };
 
     return (
-        <div className='signUpBox'>
-            <h1>Sign Up</h1>
-            <form className="inputForm" onSubmit={handleSubmit}>
-                <label> Name </label>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} required/>
+        <div className='bg'>
+            <div className='signUpBox'>
 
-                <label> Email </label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                <form className="inputForm" onSubmit={handleSubmit}>
+                    {/* <h1>Sign Up</h1> */}
 
-                <label> Password </label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                    {/* <label> Name </label> */}
+                    <div className='form-field'>
+                        <input type="text" value={name} placeholder="Email / Username" onChange={(e) => setName(e.target.value)} required />
+                    </div>
+                    {/* <label> Email </label> */}
+                    {/* <input type="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} required /> */}
+                    <div className='form-field'>
+                        <input type="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                    </div>
+                    {/* <label> Password </label> */}
+                    <div className='form-field'>
+                        <button type="submit"> Sign Up </button>
+                    </div>
 
-                <button type="submit"> Submit </button>
-            </form>
+                </form>
+            </div>
         </div>
     );
 }
