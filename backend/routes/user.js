@@ -30,8 +30,12 @@ router.route("/populate_user").post(function (req, res) {
   });
 
 router.route("/register").post(async function (req, res) {
+<<<<<<< HEAD
     const hash = crypto.createHash('sha256').update(req.body.password).digest('base64');
     req.body.password = hash;
+=======
+    console.log(req.body);
+>>>>>>> main
     User.findOne({ email: req.body.email }, function (err, result) {
       if (err) {
         res.send(err);
