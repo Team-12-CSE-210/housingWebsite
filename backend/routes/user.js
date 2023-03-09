@@ -1,9 +1,14 @@
 const express = require('express');
+var crypto = require('crypto');
 const router = express.Router();
 const User = require("../models/user");
 const Reviews = require("../models/reviews");
 router.route("/populate_user").post(function (req, res) {
     var data = require('../dummy_data/users.json');
+    for (let i = 0; i < data.length; i++) {
+      const hash = crypto.createHash('sha256').update(data[i].password).digest('base64');
+      data[i].password = hash
+    }
     User.insertMany(data, function (err, result) {
       if (err) {
         res.send(err);
@@ -18,13 +23,17 @@ router.route("/populate_user").post(function (req, res) {
       if (err) {
         res.send(err);
       } else {
+
         res.send(result);
       }
     });
   });
 
 router.route("/register").post(async function (req, res) {
-    console.log(req.body);
+
+    const hash = crypto.createHash('sha256').update(req.body.password).digest('base64');
+    req.body.password = hash;
+
     User.findOne({ email: req.body.email }, function (err, result) {
       if (err) {
         res.send(err);
@@ -46,6 +55,8 @@ router.route("/register").post(async function (req, res) {
   });
   
   router.route("/login").post(async function (req, res) {
+    const hash = crypto.createHash('sha256').update(req.body.password).digest('base64');
+    req.body.password = hash;
     User.findOne({ email: req.body.email }, function (err, result) {
       if (err) {
         res.send(err);
