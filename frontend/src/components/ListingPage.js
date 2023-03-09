@@ -114,7 +114,7 @@ class ListingPage extends React.Component {
     
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className='margin'>
                 <div class="row">
                     <div class="column">
                         <p>
