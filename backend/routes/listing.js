@@ -14,6 +14,77 @@ router.get('/all-property-details', async (req, res) => {
     res.status(500).send({ success: false, properties: [], message: 'Something went wrong!' });
   }
 });
+router.post('/filtered-property-details', async (req, res) => {
+    try {
+        const data = req.body;
+        let allProperties = [];
+
+        const queryList = []
+        if (data.amenities) {
+            for (let amenity of data.amenities) {
+                const amenityName = amenity.length() == 2 ? "AC" : amenity.toLowerCase();
+                queryList.push({[amenityName] : true})
+            }
+        }
+        
+        if (data.house_type) {
+            queryList.push({'property_type': { $in: data.house_type }})
+        }
+        if (data.bed) {
+            queryList.push({'number_bedroom': { $gte: data.bed }})
+        }
+        if (data.bath) {
+            queryList.push({'number_bathroom': { $gte: data.bath }})
+        }
+        if (data.price) {
+            const minPrice = data.price[0]
+            const maxPrice = data.price[1]
+            queryList.push({'price': { $gte: minPrice, $lte: maxPrice }})
+        }
+        if (data.property) {
+            const regex = new RegExp(data.property, "i");
+            console.log(regex)
+            
+            queryList.push({ $or: [
+                { 'name': regex },
+                { 'address': regex }
+            ]})
+
+        }
+        
+        const query = {
+            $and: queryList
+        }
+
+        const properties = await Listing.find(query, null, { limit: 18 })
+        allProperties.push(...properties)
+
+        let propertyIds = allProperties.map(item => item.id);
+        
+        const query2 = {
+            $and: [
+                { $or: queryList },
+                { 'id': { $nin: propertyIds } }
+            ]
+        }
+
+        const properties2 = await Listing.find(query2, null, { limit: 18 - allProperties.length});
+        allProperties.push(...properties2)
+
+        propertyIds = allProperties.map(item => item.id);
+
+        const query3 = { 'id': { $nin: propertyIds } }
+
+        const properties3 = await Listing.find(query3, null, { limit: 18 - allProperties.length});
+        allProperties.push(...properties3)
+
+        res.status(200).send({ success: true, data: allProperties });
+    } 
+    catch (err) {
+        console.log(err)
+        res.status(500).send({ success: false, properties: [], message: 'Something went wrong!' });
+    }
+}); 
 router.get('/user-data', async (req, res) => {
   try {
     const properties = await User.findOne({ email: req.headers['user-id'] });
