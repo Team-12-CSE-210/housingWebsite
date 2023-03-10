@@ -168,7 +168,7 @@ img {
   margin-right: 13%;
   padding: 3%;
   /* max-width: 1000px */
-  column-count: 2;
+  /* column-count: 2; */
   column-fill: auto;
   /* border: solid 3px; */
   border-color: #cdcdcd;
@@ -194,7 +194,7 @@ img {
 }
 
 .column-1 {
-  height: 1000px;
+  /* height: 1000px; */
   width: 100%;
   margin: 0%;
 }
@@ -209,9 +209,9 @@ img {
 
 .gmap {
   height: 300px;
-  width: 100%;
+  width: 30% !important;
   margin: auto;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .prop_data {

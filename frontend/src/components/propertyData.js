@@ -150,10 +150,6 @@ class PropertyData extends React.Component {
                     <div className="container" align='center'>
                         <img src={require('../pictures_test/1.jpeg')} />
                     </div>
-                    <div className='gmap'>
-                        <GoogleApiWrapper name={this.state.propInfo.name} lat={this.state.propInfo.latitude} lng={this.state.propInfo.longitude}></GoogleApiWrapper>
-                    </div>
-
                 </div>
 
 
@@ -217,7 +213,7 @@ class PropertyData extends React.Component {
                             {this.state.review && <button onClick={event => { this.addReview() }}>Submit</button>}
                         </div>}
                     {/* </div> */}
-
+                    <GoogleApiWrapper name={this.state.propInfo.name} lat={this.state.propInfo.latitude} lng={this.state.propInfo.longitude}></GoogleApiWrapper>
                     <h1>List of reviews</h1>
                     <div>
                         {this.state.reviewList.map(item => (
