@@ -27,7 +27,7 @@ function SignUpPage() {
         });
 
         let responseJSON = await res.json();
-        // TODO: error handling
+        alert(responseJSON.message);
     };
 
     return (

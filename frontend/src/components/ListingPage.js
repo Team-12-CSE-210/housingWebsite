@@ -54,7 +54,6 @@ class ListingPage extends React.Component {
     
     async handleSubmit(event) {
         event.preventDefault();
-        alert(`TODO: check if required fields are filled`);
 
         const resId = await fetch("http://localhost:8001/api/get-next-id");
         const resIdData = await resId.json();
@@ -107,7 +106,6 @@ class ListingPage extends React.Component {
         
         Promise.all([resList, resImg]).then(() => {
             console.log("done");
-            // TODO: go to success page
         });
     }
 
@@ -119,35 +117,35 @@ class ListingPage extends React.Component {
                     <div class="column">
                         <p>
                             <label>Property Name</label>
-                            <input name="propertyName" type="text" value={this.state.propertyName} onChange={this.handleChange}/>
+                            <input name="propertyName" type="text" value={this.state.propertyName} onChange={this.handleChange} required/>
                         </p>
                         <p>
                             <label>Attach images</label>
-                            <input type="file" id="img" name="propertyImages" accept="image/*" multiple onChange={this.handleFiles}/>
+                            <input type="file" id="img" name="propertyImages" accept="image/*" multiple onChange={this.handleFiles} required/>
 
                         </p>
                         <p>
                             <label>Description</label>
-                            <textarea name="description" rows="8" value={this.state.description} onChange={this.handleChange}/>
+                            <textarea name="description" rows="8" value={this.state.description} onChange={this.handleChange} required/>
                         </p>
                     </div>
                     <div class="column">
                         <p>
                             <label>Address</label>
-                            <input name="address" type="text" value={this.state.address} onChange={this.handleChange}/>
+                            <input name="address" type="text" value={this.state.address} onChange={this.handleChange} required/>
                         </p>
                         <p>
                             <label for="price">Price (USD)</label>
-                            <input name="price" type="number" value={this.state.price} onChange={this.handleChange}/>
+                            <input name="price" type="number" value={this.state.price} onChange={this.handleChange} required/>
                             <label for="sqft">sqft</label>
-                            <input name="sqft" type="number" value={this.state.sqft} onChange={this.handleChange}/>
+                            <input name="sqft" type="number" value={this.state.sqft} onChange={this.handleChange} required/>
                             <label for="bdba">bd/ba</label>
-                            <input name="bedrooms" type="number" value={this.state.bedrooms} onChange={this.handleChange}/>
-                            <input name="bathrooms" type="number" value={this.state.bathrooms} onChange={this.handleChange}/>
+                            <input name="bedrooms" type="number" value={this.state.bedrooms} onChange={this.handleChange} required/>
+                            <input name="bathrooms" type="number" value={this.state.bathrooms} onChange={this.handleChange} required/>
                         </p>
                         <p>
                             <label>Property Type</label>
-                            <select name="propertyType" value={this.state.propertyType} onChange={this.handleChange}>
+                            <select name="propertyType" value={this.state.propertyType} onChange={this.handleChange} required>
                                 <option value="apartment">Apartment</option>
                                 <option value="condo">Condo</option>
                                 <option value="house">House</option>
@@ -156,7 +154,7 @@ class ListingPage extends React.Component {
                         </p>
                         <p>
                             <label>Availability Date</label>
-                            <input name="availabilityDate" type="date" value={this.state.availabilityDate} onChange={this.handleChange}/>
+                            <input name="availabilityDate" type="date" value={this.state.availabilityDate} onChange={this.handleChange} required/>
                         </p>
                     </div>
                 </div>
@@ -225,15 +223,15 @@ class ListingPage extends React.Component {
                     <div class="row">
                         <div class="landlordcolumn left">
                             <label>Your Name</label>
-                            <input name="landlordName" type="text" value={this.state.landlordName} onChange={this.handleChange}/>
+                            <input name="landlordName" type="text" value={this.state.landlordName} onChange={this.handleChange} required/>
                         </div>
                         <div class="landlordcolumn mid">
                             <label>Phone</label>
-                            <input name="phone" type="tel" value={this.state.phone} onChange={this.handleChange}/>
+                            <input name="phone" type="tel" value={this.state.phone} onChange={this.handleChange} required/>
                         </div>
                         <div class="landlordcolumn right">
                             <label>Email</label>
-                            <input name="email" type="email" value={this.state.email} onChange={this.handleChange}/>
+                            <input name="email" type="email" value={this.state.email} onChange={this.handleChange} required/>
                         </div>
                     </div>
                 </p>

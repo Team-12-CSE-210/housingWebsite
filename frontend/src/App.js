@@ -15,7 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currUser: ""
+      currUser: localStorage.getItem('currUser') || ''
     };
   }
 
@@ -24,14 +24,14 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Header />
+          <Header currUser={this.state.currUser}/>
           <Routes>
             <Route exact path="/" element={<><SearchBarFilters /><CardList /></>}/>
             <Route exact path="/property-info/" element={<PropertyData/>}/>
             <Route path="/list" element={<ListingPage />} />
             <Route path="/help" element={<Faq />} />
             <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/login" element={<LoginPage handleCurrUser={(firstName) => this.setState({ currUser: firstName })} />} />
+            <Route path="/login" element={<LoginPage handleCurrUser={(firstName) => {this.setState({ currUser: firstName }); localStorage.setItem('currUser', firstName);}}/>}/>
           </Routes>
         </div>
       </Router>

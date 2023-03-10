@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css'
 
-function Header() {
+function Header(props) {
+    const { currUser } = props;
     return (
         <div className='header'>
             <div className='navigation-links'>
@@ -12,9 +13,15 @@ function Header() {
                 <Link to="/help"> Help </Link>
             </div>
             <div className='account-buttons'>
-                <Link to="/login">
-                    <button>Login</button>
-                </Link>
+                {currUser ? (
+                    <Link to="/login">
+                        <button>Hi {currUser}!</button>
+                    </Link>
+                ) : (
+                    <Link to="/login">
+                        <button>Login</button>
+                    </Link>
+                )}
                 <Link to="/signup">
                     <button>Sign Up</button>
                 </Link>

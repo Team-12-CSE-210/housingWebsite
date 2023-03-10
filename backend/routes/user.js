@@ -39,13 +39,13 @@ router.route("/register").post(async function (req, res) {
         res.send(err);
       } else {
         if (result) {
-          res.status(400).send({ "message": "User already registered" });
+          res.status(400).send({ "message": "Your email has already been registered!" });
         } else {
           User.create(req.body, function (err, result) {
             if (err) {
               res.send(err);
             } else {
-              res.send({ "message": "User successfully registered" });
+              res.send({ "message": "You've successfully signed up, thank you! You may login!" });
             }
           });
         }
@@ -66,10 +66,10 @@ router.route("/register").post(async function (req, res) {
           if (password) {
             res.send(result);
           } else {
-            res.status(400).send({ "message": "Incorrect password" });
+            res.status(400).send({ "message": "Your password was incorrect!" });
           }
         } else {
-          res.status(400).send({ "message": "User is not registered" });
+          res.status(400).send({ "message": "Your email is not registered, please sign up for an account!" });
         }
       }
     });
