@@ -14,7 +14,7 @@ class SelectDropdown extends React.Component {
         const {
             target: { value },
           } = event;
-        console.log(value);
+        this.props.onSelect(value);
         this.setState({count : value});
     };   
     render() {
