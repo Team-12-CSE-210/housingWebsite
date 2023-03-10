@@ -24,7 +24,7 @@ class DemoCarousel extends Component {
         return (
             <div>
                     <>
-      <h1 style={{ textAlign: "center" }}>Images of the property</h1>
+      <h3 style={{ textAlign: "center" }}>Check out the Property!</h3>
       <div className="App">
         <Carousel breakPoints={breakPoints}>
           <Item><img src ={'http://localhost:8001/images'+this.state.houseImage} /></Item>
