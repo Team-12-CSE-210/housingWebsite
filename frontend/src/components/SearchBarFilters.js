@@ -11,8 +11,8 @@ class SearchBarFilters extends React.Component{
   constructor(props){
     super(props);
     this.state = {data: [],
-      amenities: ['Gym','Pool','Laundry','Pets','Ac/Heating','Parking','Wifi','TV',],
-      housetypes: ['House','Apartment','Condo','Townhouse','Studio','Loft','Other'],
+      amenities: ['Kitchen','Gym','Pool','Laundry','Furnished','Pets','AC','Parking'],
+      housetypes: ['House','Apartment','Condo','Townhouse'],
       number: ['1','2','3','4','5','6','7','8','9','10'],
       selected_house_type: [],
       selected_amenties: [],
