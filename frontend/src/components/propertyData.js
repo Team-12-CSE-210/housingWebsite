@@ -12,6 +12,7 @@ class PropertyData extends React.Component {
         const response = await fetch('http://localhost:8001/api/property-details?id=' + this.state.propId);
         const responseData = await response.json();
         const propertyInfo = responseData.data;
+        this.setState({ propInfo: propertyInfo });
         if (this.state.userLoggedIn) {
             const config = {
                 method: 'GET',
@@ -159,15 +160,15 @@ class PropertyData extends React.Component {
                 <div className='column-2'>
 
                     <div className="prop_data">
-                        <h1>{this.state.propInfo.name} 10940 Lyra Ct</h1>
-                        <h2>{this.state.propInfo.address} San Diego, CA 92126</h2>
+                        <h1>{this.state.propInfo.name}</h1>
+                        <h2>{this.state.propInfo.address} </h2>
 
                     </div>
 
                     <div className='detail'>
                         <div className='detail_inside'>
-                            <span className='s1'> $3,795  {this.state.propInfo.price} </span>
-                            <span className='s2'> Monthly Price  </span>
+                            <span className='s1'> $ {this.state.propInfo.price} </span>
+                            <span className='s2'> Monthly Rent  </span>
                         </div>
 
                         {/* <p>{this.state.propInfo.description} </p> */}
@@ -178,12 +179,12 @@ class PropertyData extends React.Component {
                         </div>
 
                         <div className='detail_inside'>
-                            <span className='s1'> 2 {this.state.propInfo.number_bedroom} </span>
+                            <span className='s1'> {this.state.propInfo.number_bedroom} </span>
                             <span className='s2'> Bedroom </span>
                         </div>
 
                         <div className='detail_inside'>
-                            <span className='s1'> 1 {this.state.propInfo.number_bathroom} </span>
+                            <span className='s1'> {this.state.propInfo.number_bathroom} </span>
                             <span className='s2'> Bathroom </span>
                         </div>
                     </div>
