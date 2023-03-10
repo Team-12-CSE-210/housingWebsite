@@ -43,63 +43,91 @@ class SearchBarFilters extends React.Component{
   handlePrice = (value) => {
     this.setState({selected_price : value});
   };
-  handleSearch = () => {
+  
+  handleSearch = async () => {
     console.log("search button clicked")
     var dict = {};
-    dict['property'] = this.state.selected_property;
-    dict['house_type'] = this.state.selected_house_type;
-    dict['amenities'] = this.state.selected_amenties;
+    if (this.state.selected_property.length != 0)
+      dict['property'] = this.state.selected_property;
+    if (this.state.selected_house_type != 0)
+      dict['house_type'] = this.state.selected_house_type;
+    if (this.state.selected_amenties.length != 0)
+      dict['amenities'] = this.state.selected_amenties;
     dict['rating'] = this.state.selected_rating;
-    dict['bed'] = this.state.selected_bed;
-    dict['bath'] = this.state.selected_bath;
+
+    if (this.state.selected_bed != 0)
+      dict['bed'] = this.state.selected_bed;
+    if (this.state.selected_bath != 0) 
+      dict['bath'] = this.state.selected_bath;
     dict['price'] = this.state.selected_price;
-    console.log(dict);
-  };
-  async componentDidMount() {
-    const response = await fetch('http://localhost:8001/api/all-property-details');
-    const responseData = await response.json();
-    const propertyInfo = responseData.data.map(item =>{
-      return{
-          id: item.id,
-          Name: item.name,
-          Address: item.address,
-          Facilities: 'Bedroom: '+item.number_bedroom + '. Bathroom: '+item.number_bathroom,
-          Price: item.price
-      }
+
+    let filtereddata = await fetch('http://localhost:8001/api/filtered-property-details', {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dict),
     });
-    const Data = propertyInfo;
-    this.setState({data: Data});
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if(prevState.selected_house_type !== this.state.selected_house_type){
-      console.log('house type changed');
-      console.log(this.state.selected_house_type);
-    }
-    if(prevState.selected_amenties !== this.state.selected_amenties){
-      console.log('amenties changed');
-      console.log(this.state.selected_amenties);
-    }
-    if(prevState.selected_rating !== this.state.selected_rating){
-      console.log('rating changed');
-      console.log(this.state.selected_rating);
-    }
-    if(prevState.selected_bed !== this.state.selected_bed){
-      console.log('bed changed');
-      console.log(this.state.selected_bed);
-    }
-    if(prevState.selected_bath !== this.state.selected_bath){
-      console.log('bath changed');
-      console.log(this.state.selected_bath);
-    }
-    if(prevState.selected_property !== this.state.selected_property){
-      console.log('property changed');
-      console.log(this.state.selected_property);
-    }
-    if(prevState.selected_price !== this.state.selected_price){
-      console.log('price changed');
-      console.log(this.state.selected_price);
-    } 
-  }
+
+    const responseData = await filtereddata.json();
+      const propertyInfo = responseData.data.map(item => {
+          return {
+              id: item.id,
+              Name: item.name,
+              Address: item.address,
+              Facilities: 'Bedroom: ' + item.number_bedroom + '. Bathroom: ' + item.number_bathroom,
+              Price: item.price
+          }
+      });
+      console.log(dict);
+  };
+
+
+  // async componentDidMount() {
+  //   const response = await fetch('http://localhost:8001/api/all-property-details');
+  //   const responseData = await response.json();
+  //   const propertyInfo = responseData.data.map(item =>{
+  //     return{
+  //         id: item.id,
+  //         Name: item.name,
+  //         Address: item.address,
+  //         Facilities: 'Bedroom: '+item.number_bedroom + '. Bathroom: '+item.number_bathroom,
+  //         Price: item.price
+  //     }
+  //   });
+  //   const Data = propertyInfo;
+  //   this.setState({data: Data});
+  // }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if(prevState.selected_house_type !== this.state.selected_house_type){
+  //     console.log('house type changed');
+  //     console.log(this.state.selected_house_type);
+  //   }
+  //   if(prevState.selected_amenties !== this.state.selected_amenties){
+  //     console.log('amenties changed');
+  //     console.log(this.state.selected_amenties);
+  //   }
+  //   if(prevState.selected_rating !== this.state.selected_rating){
+  //     console.log('rating changed');
+  //     console.log(this.state.selected_rating);
+  //   }
+  //   if(prevState.selected_bed !== this.state.selected_bed){
+  //     console.log('bed changed');
+  //     console.log(this.state.selected_bed);
+  //   }
+  //   if(prevState.selected_bath !== this.state.selected_bath){
+  //     console.log('bath changed');
+  //     console.log(this.state.selected_bath);
+  //   }
+  //   if(prevState.selected_property !== this.state.selected_property){
+  //     console.log('property changed');
+  //     console.log(this.state.selected_property);
+  //   }
+  //   if(prevState.selected_price !== this.state.selected_price){
+  //     console.log('price changed');
+  //     console.log(this.state.selected_price);
+  //   } 
+  // }
   render(){
     return (
       <div className="SearchBarFilters">
