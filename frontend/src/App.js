@@ -16,6 +16,7 @@ const number = ['1','2','3','4','5','6','7','8','9','10'];
 function App() {
   return (
     <div className="App">
+      <Header />
       <SearchBar placeholder="Enter Address/Name/Zipcode" data={Data}/>
       <PriceRange />
       <MultipleCheckbox Name="House Type" types={housetypes}> </MultipleCheckbox>
@@ -23,6 +24,7 @@ function App() {
       <SelectDropdown Name="Bed" types={number} InputLabel="# of Bed"></SelectDropdown>
       <SelectDropdown Name="Bath" types={number} InputLabel="# of Bath"></SelectDropdown>
       <MultipleCheckbox Name="Amenities" types={amenities}> </MultipleCheckbox>
+      <Footer />
     </div>
   );
 }

@@ -96,7 +96,11 @@ input[type=date] {
     width: calc(90.45% - 120px);
 }
 
+<<<<<<< HEAD
 input[name=landlordName] input[name=email] input[name=phone]{
+=======
+input[name=landlord] {
+>>>>>>> f782be6c844ebdc0addf51ad60235d11f599fe83
     width: calc(90% - 120px);
 }
 
@@ -146,7 +150,11 @@ input::-webkit-inner-spin-button {
 p {
     margin-bottom: 50px
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> c3f967a (Merged main branch manually)
+=======
+}
+>>>>>>> f782be6c844ebdc0addf51ad60235d11f599fe83
