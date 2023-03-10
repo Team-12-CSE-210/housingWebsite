@@ -2,7 +2,12 @@
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  background-color: white;
+  background-color: aliceblue;
+  border: #f0c5c52c !important;
+  /* border-radius: 5% !important;
+  border-style: solid !important;
+  border-width: 5px !important; */
+  cursor: pointer;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -11,9 +16,34 @@
 }
 
 /* Add some padding inside the card container */
-.container {
-  margin-top: 5%;
-  padding: 0% !important;
+.container1 {
+  padding: 8px 8px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0% 0 6% 6% !important;
+  letter-spacing: 2px;
+}
+
+.container1 p {
+  margin-bottom: 0% !important;
+  padding: 2%;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  color: rgb(42, 42, 51);
+}
+
+.address {
+  font-style: italic;
+}
+
+.container1 h3 {
+  margin-bottom: 0px !important;
+  padding: 2%;
+  font-size: 200%;
+  font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  font-weight: 700;
+  line-height: 24px;
 }
 
 * {
@@ -27,8 +57,13 @@ body {
 /* Float four columns side by side */
 .column-card {
   float: left;
-  width: 33%;
-  padding: 0 10px;
+  margin-left: 5%;
+  width: 23.3%;
+  /* height: 283px; */
+  padding: 0 0px;
+  margin-top: 30px;
+  margin-right: 5%;
+  margin-bottom: 20px;
 }
 
 .pageButton {
@@ -39,7 +74,9 @@ body {
 
 /* Remove extra left and right margins, due to padding in columns */
 .row-card {
-  margin: 0 -5px;
+  margin: 0 0px;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
 }
 
 /* Clear floats after the columns */
@@ -58,16 +95,20 @@ body {
   }
 }
 
-/* img {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px 5px;
-    width: 440px;
-  } */
+img {
+  /* border: 1px solid #ddd;
+    border-radius: 4px; */
+  padding: 0px 0px 0px 0px;
+  width: 100%;
+  height: 200px;
+  background-color: aliceblue;
+  border-radius: 6% 6% 0% 0 !important
+}
+
 .button-34 {
-  background: #5E5DF0;
+  background: #212529;
   border-radius: 999px;
-  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-shadow: #212529 0 10px 20px -10px;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
@@ -87,7 +128,13 @@ body {
 }
 
 .div-pad {
-  padding: 10px 5px;
+  padding: 5px 5px;
+  /* background-color: aliceblue; */
+  border-radius: 0% 0% 20% 20% !important
+}
+
+.center {
+  text-align: center;
 }
 
 .parent {
