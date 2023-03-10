@@ -1,9 +1,10 @@
 .header {
     display: flex;
+    grid-template-columns: 50px 1fr 50px;
     justify-content: space-between;
     align-items: center;
     padding: .35%;
-    background-color: #A2ABCB;
+    /* background-color: #ffffff; */
   }
   
 .navigation-links {
@@ -14,11 +15,19 @@
     width: 50%;
 }
 
+.navigation-links1 {
+    padding: 0% 0% 0% 1%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
 .navigation-links a {
-    margin-right: 12%;
+    margin-right: 10%;
     color: #000000;
     text-decoration: none;
-    font-size: 175%;
+    font-size: 155%;
 }
 
 .account-buttons {
@@ -28,10 +37,73 @@
     width: 30%;
 }
 
+
 .account-buttons button {
     margin-right: 2%;
-    background-color: #C67588;
+    background-color: #b32c38;
     padding: 1.5%;
     font-size: 125%;
     width: 25%;
+    /* position: static; */
+    display: block;
+    /* margin: auto auto auto auto; */
+    padding: 10px 10px;
+    color: #ffffff;
+    font-size:14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: .08em;
+    border-radius: 0;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.account-buttons a {
+    margin-right: 2%;
+    background-color: #b32c38;
+    padding: 1.5%;
+    font-size: 125%;
+    width: 25%;
+    /* position: static; */
+    display: block;
+    /* margin: auto auto auto auto; */
+    padding: 10px 10px;
+    color: #ffffff;
+    font-size:14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: .08em;
+    border-radius: 0;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.maxwidth {
+    max-width: 50000cm !important;
+    margin-top: 0 !important
+}
+
+.text1 {
+    font-size: 1.5rem !important;
+    padding: 1rem 2rem 1rem 2rem !important;
+}
+
+.navpad {
+    padding: 0% 5% !important;
+}
+
+.navbar-nav {
+    row-gap: 10px  !important;
 }
