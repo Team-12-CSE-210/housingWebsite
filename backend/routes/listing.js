@@ -16,7 +16,7 @@ router.get('/all-property-details', async (req, res) => {
 });
 router.get('/user-data', async (req, res) => {
   try {
-    const properties = await User.findOne({ _id: req.headers['user-id'] });
+    const properties = await User.findOne({ email: req.headers['user-id'] });
     res.status(200).send({ success: true, data: properties });
   }
   catch (err) {

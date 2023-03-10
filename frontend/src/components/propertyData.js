@@ -17,7 +17,7 @@ class PropertyData extends React.Component {
             const config = {
                 method: 'GET',
                 headers: {
-                    'user-id': '64014aa54c23d847667d1f86'
+                    'user-id': 'test@gmail.com'
                 }
             }
             const userData = await fetch('http://localhost:8001/api/user-data', config);
