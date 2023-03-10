@@ -1,17 +1,20 @@
 import '../styles/card.css';
 import React from 'react';
-
+var data = require('../pictures_test/sample.json');
 class Card extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { id: props.id, Name: props.name, Address: props.Address, Facilities: props.Facilities, Price: props.price };
+        var path = '/house/'+data['./house/'][props.id%data['./house/'].length]
+        console.log(path);
+        this.state = { id: props.id, Name: props.name, Address: props.Address, Facilities: props.Facilities, Price: props.price, image: path };
+        
     }
 
     render() {
         return (
             <div className="card">
                 <div className="container">
-                    <img src={require('../pictures_test/1.jpeg')} />
+                    <img src ={'http://localhost:8001/images'+this.state.image} />
                     <h4><b>{this.state.Name}</b></h4>
                     <p>{this.state.Address}</p>
                     <p>{this.state.Facilities}</p>

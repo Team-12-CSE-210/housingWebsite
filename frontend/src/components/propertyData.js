@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/card.css';
 import GoogleApiWrapper from './mapContainer';
+import DemoCarousel from './carousel';
 class PropertyData extends React.Component {
     constructor(props) {
         super(props);
@@ -154,8 +155,8 @@ class PropertyData extends React.Component {
                         <p>Rating: {this.state.rating} </p>
                     </div>
                 </div>
-                <div className="container" align='center'>
-                    <img src={require('../pictures_test/1.jpeg')} />
+                <div className="carousel" align='center'>
+                    <DemoCarousel id = {this.state.propId}></DemoCarousel>
                 </div>
                 <h1>List of reviews</h1>
                 <div>
