@@ -5,9 +5,10 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Rating from '@mui/material/Rating';
 
-export default function RatingSelectVariants() {
+export default function RatingSelectVariants({onSelect}) {
   const [RatingVal, setRatingVal] = React.useState('');
   const handleChange = (event) => {
+    onSelect(event.target.value);
     setRatingVal(event.target.value);
   };
 
@@ -25,11 +26,11 @@ export default function RatingSelectVariants() {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={"1*"}><Rating name="read-only" value="1" readOnly /></MenuItem>
-          <MenuItem value={"2*"}><Rating name="read-only" value="2" readOnly /></MenuItem>
-          <MenuItem value={"3*"}><Rating name="read-only" value="3" readOnly /></MenuItem>
-          <MenuItem value={"4*"}><Rating name="read-only" value="4" readOnly /></MenuItem>
-          <MenuItem value={"5*"}><Rating name="read-only" value="5" readOnly /></MenuItem>
+          <MenuItem value={"1"}><Rating name="read-only" value="1" readOnly /></MenuItem>
+          <MenuItem value={"2"}><Rating name="read-only" value="2" readOnly /></MenuItem>
+          <MenuItem value={"3"}><Rating name="read-only" value="3" readOnly /></MenuItem>
+          <MenuItem value={"4"}><Rating name="read-only" value="4" readOnly /></MenuItem>
+          <MenuItem value={"5"}><Rating name="read-only" value="5" readOnly /></MenuItem>
         </Select>
       </FormControl>
     </div>

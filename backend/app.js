@@ -32,31 +32,31 @@ connect.then(() => {
 }, (err) => console.log(err));
 
 // create storage engine
-const storage = new GridFsStorage({
-    db: promise,
-    file: (req, file) => {
-        return new Promise((resolve, reject) => {
-            crypto.randomBytes(16, (err, buf) => {
-                if (err) {
-                    return reject(err);
-                }
-                const filename = buf.toString('hex') + path.extname(file.originalname);
-                const fileInfo = {
-                    filename: filename,
-                    bucketName: 'housing'
-                };
-                resolve(fileInfo);
-            });
-        });
-    }
-});
+// const storage = new GridFsStorage({
+//     db: promise,
+//     file: (req, file) => {
+//         return new Promise((resolve, reject) => {
+//             crypto.randomBytes(16, (err, buf) => {
+//                 if (err) {
+//                     return reject(err);
+//                 }
+//                 const filename = buf.toString('hex') + path.extname(file.originalname);
+//                 const fileInfo = {
+//                     filename: filename,
+//                     bucketName: 'housing'
+//                 };
+//                 resolve(fileInfo);
+//             });
+//         });
+//     }
+// });
 
-const upload = multer({ storage });
+// const upload = multer({ storage });
 
 app.use('/', indexRouter);
 app.use('/api/', listingRouter);
 app.use('/api/', userRouter);
-app.use('/api/', imageRouter(upload));
+// app.use('/api/', imageRouter(upload));
 
 app.use(function(req, res, next) {
     next(createError(404));
