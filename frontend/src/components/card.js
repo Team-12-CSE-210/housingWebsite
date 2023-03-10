@@ -10,7 +10,7 @@ class Card extends React.Component {
     render() {
         return (
             <div className="card">
-                <div className="container">
+                <div className="container1">
                     <img src={require('../pictures_test/1.jpeg')} />
                     <h4><b>{this.state.Name}</b></h4>
                     <p>{this.state.Address}</p>
