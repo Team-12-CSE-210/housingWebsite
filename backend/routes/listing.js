@@ -22,7 +22,7 @@ router.post('/filtered-property-details', async (req, res) => {
         const queryList = []
         if (data.amenities) {
             for (let amenity of data.amenities) {
-                const amenityName = amenity.length() == 2 ? "AC" : amenity.toLowerCase();
+                const amenityName = amenity.length == 2 ? "AC" : amenity.toLowerCase();
                 queryList.push({[amenityName] : true})
             }
         }
@@ -43,7 +43,6 @@ router.post('/filtered-property-details', async (req, res) => {
         }
         if (data.property) {
             const regex = new RegExp(data.property, "i");
-            console.log(regex)
             
             queryList.push({ $or: [
                 { 'name': regex },
@@ -59,24 +58,25 @@ router.post('/filtered-property-details', async (req, res) => {
         const properties = await Listing.find(query, null, { limit: 18 })
         allProperties.push(...properties)
 
-        let propertyIds = allProperties.map(item => item.id);
-        
-        const query2 = {
-            $and: [
-                { $or: queryList },
-                { 'id': { $nin: propertyIds } }
-            ]
+        if (allProperties.length < 18) {
+            const propertyIds = allProperties.map(item => item.id);
+            const query2 = {
+                $and: [
+                    { $or: queryList },
+                    { 'id': { $nin: propertyIds } }
+                ]
+            }
+            const properties2 = await Listing.find(query2, null, { limit: 18 - allProperties.length});
+            allProperties.push(...properties2)
         }
+        
+        if (allProperties.length < 18) {
+            const propertyIds = allProperties.map(item => item.id);
+            const query3 = { 'id': { $nin: propertyIds } }
 
-        const properties2 = await Listing.find(query2, null, { limit: 18 - allProperties.length});
-        allProperties.push(...properties2)
-
-        propertyIds = allProperties.map(item => item.id);
-
-        const query3 = { 'id': { $nin: propertyIds } }
-
-        const properties3 = await Listing.find(query3, null, { limit: 18 - allProperties.length});
-        allProperties.push(...properties3)
+            const properties3 = await Listing.find(query3, null, { limit: 18 - allProperties.length});
+            allProperties.push(...properties3)
+        }
 
         res.status(200).send({ success: true, data: allProperties });
     } 
