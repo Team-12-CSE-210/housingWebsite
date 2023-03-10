@@ -5,7 +5,6 @@ class Card extends React.Component {
     constructor(props) {
         super(props);
         var path = '/house/'+data['./house/'][props.id%data['./house/'].length]
-        console.log(path);
         this.state = { id: props.id, Name: props.name, Address: props.Address, Facilities: props.Facilities, Price: props.price, image: path };
         
     }

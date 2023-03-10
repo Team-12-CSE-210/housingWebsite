@@ -7,7 +7,7 @@ var maxId;
 
 router.get('/all-property-details', async (req, res) => {
   try {
-    const properties = await Listing.find({}, null, { limit: 18 });
+    const properties = await Listing.find({}, null);
     res.status(200).send({ success: true, data: properties });
   }
   catch (err) {

@@ -16,14 +16,14 @@ class CardList extends React.Component {
     }
 
     async componentDidMount() {
-        const response  = await fetch('http://localhost:8001/api/all-property-details');
+        const response = await fetch('http://localhost:8001/api/all-property-details');
         const responseData = await response.json();
-        const propertyInfo = responseData.data.map(item =>{
-            return{
+        const propertyInfo = responseData.data.map(item => {
+            return {
                 id: item.id,
                 Name: item.name,
                 Address: item.address,
-                Facilities: 'Bedroom: '+item.number_bedroom + '. Bathroom: '+item.number_bathroom,
+                Facilities: 'Bedroom: ' + item.number_bedroom + '. Bathroom: ' + item.number_bathroom,
                 Price: item.price
             }
         });
@@ -31,22 +31,25 @@ class CardList extends React.Component {
     }
     render() {
         return (
-            <div>
-                <br></br>
-                <div className="row-card">
-                    {this.state.propertyInfo.slice((this.state.currentPage - 1) * 6, Math.min((this.state.currentPage - 1) * 6 + 6, this.state.len)).map(item => (
-                        <div className="column-card" key={item.id}>
-                            <Card key={item.id} id={item.id} name={item.Name} Address={item.Address} Facilities={item.Facilities} price={item.Price}></Card>
-                            <br></br>
-                        </div>
-                    ))}
+            <>
+                <div>
+                    <br></br>
+                    <div className="row-card">
+                        {this.state.propertyInfo.slice((this.state.currentPage - 1) * 6, Math.min((this.state.currentPage - 1) * 6 + 6, this.state.len)).map(item => (
+                            <div className="column-card" key={item.id}>
+                                <Card key={item.id} id={item.id} name={item.Name} Address={item.Address} Facilities={item.Facilities} price={item.Price}></Card>
+                                <br></br>
+                            </div>
+                        ))}
+                    </div>
+                    <br></br>
+                    <br></br>
+
                 </div>
-                <br></br>
-                <br></br>
-                <div align="center">
+                <div className="wrapper">
                     {this.state.pages && <PageButton pages={this.state.pages} currentPage={this.state.currentPage} handler={this.handler}></PageButton>}
                 </div>
-            </div>
+            </>
         )
     }
 }

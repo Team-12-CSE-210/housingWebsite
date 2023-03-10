@@ -52,6 +52,11 @@
       margin-bottom: 20px;
     }
   }
+  .wrapper{ 
+    width: 980px; /*1024, percentage*/
+    margin-left: 600px; 
+    margin-right: auto;
+   }
   img {
     border: 1px solid #ddd;
     border-radius: 4px;
