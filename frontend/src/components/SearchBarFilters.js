@@ -44,7 +44,7 @@ class SearchBarFilters extends React.Component{
     this.setState({selected_price : value});
   };
   
-  handleSearch = async () => {
+  handleSearch = () => {
     console.log("search button clicked")
     var dict = {};
     if (this.state.selected_property.length != 0)
@@ -61,25 +61,7 @@ class SearchBarFilters extends React.Component{
       dict['bath'] = this.state.selected_bath;
     dict['price'] = this.state.selected_price;
 
-    let filtereddata = await fetch('http://localhost:8001/api/filtered-property-details', {
-      method: "POST",
-      headers: {
-          "Content-Type": "application/json",
-      },
-      body: JSON.stringify(dict),
-    });
-
-    const responseData = await filtereddata.json();
-      const propertyInfo = responseData.data.map(item => {
-          return {
-              id: item.id,
-              Name: item.name,
-              Address: item.address,
-              Facilities: 'Bedroom: ' + item.number_bedroom + '. Bathroom: ' + item.number_bathroom,
-              Price: item.price
-          }
-      });
-      console.log(dict);
+    this.props.searchFilters(dict);
   };
 
 

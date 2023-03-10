@@ -55,28 +55,28 @@ router.post('/filtered-property-details', async (req, res) => {
             $and: queryList
         }
 
-        const properties = await Listing.find(query, null, { limit: 18 })
+        const properties = await Listing.find(query, null)
         allProperties.push(...properties)
 
-        if (allProperties.length < 18) {
-            const propertyIds = allProperties.map(item => item.id);
-            const query2 = {
-                $and: [
-                    { $or: queryList },
-                    { 'id': { $nin: propertyIds } }
-                ]
-            }
-            const properties2 = await Listing.find(query2, null, { limit: 18 - allProperties.length});
-            allProperties.push(...properties2)
-        }
         
-        if (allProperties.length < 18) {
-            const propertyIds = allProperties.map(item => item.id);
-            const query3 = { 'id': { $nin: propertyIds } }
-
-            const properties3 = await Listing.find(query3, null, { limit: 18 - allProperties.length});
-            allProperties.push(...properties3)
+        let propertyIds = allProperties.map(item => item.id);
+        const query2 = {
+            $and: [
+                { $or: queryList },
+                { 'id': { $nin: propertyIds } }
+            ]
         }
+        const properties2 = await Listing.find(query2, null);
+        allProperties.push(...properties2)
+        
+        
+      
+        propertyIds = allProperties.map(item => item.id);
+        const query3 = { 'id': { $nin: propertyIds } }
+
+        const properties3 = await Listing.find(query3, null);
+        allProperties.push(...properties3)
+        
 
         res.status(200).send({ success: true, data: allProperties });
     } 
