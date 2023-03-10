@@ -22,10 +22,14 @@ function LoginPage({handleCurrUser}) {
         });
         
         let responseJSON = await res.json();
-        // TODO: error handling
-        // TODO: for fav property feature implementation, check "properties" in next line's JSON object
-        console.log(responseJSON)
-        handleCurrUser(responseJSON.first_name);
+        if (responseJSON.message === undefined) {
+        // Handle the case where the message is undefined
+            handleCurrUser(responseJSON.first_name);
+            alert("You've successfully logged in!");
+        } else {
+            handleCurrUser('');
+            alert(responseJSON.message);
+        }
     };
 
     return (
