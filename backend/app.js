@@ -20,6 +20,7 @@ app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(methodOverride('_method'));
+app.use(express.static('public'));
 
 const url = env.db_url;
 const promise = mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });

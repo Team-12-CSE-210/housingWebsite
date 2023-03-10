@@ -82,6 +82,10 @@
   .div-pad{
     padding: 10px 5px;
   }
+  .carousel{
+      height: 100%;
+      width: 100%;
+  }
   .parent {
     margin: 0rem;
     padding: 2rem 2rem;
