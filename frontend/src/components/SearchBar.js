@@ -4,8 +4,13 @@ import Autocomplete from '@mui/material/Autocomplete';
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 
-function SearchBar({ placeholder, data }) {
-    console.log(data);
+function SearchBar({ placeholder, data, onSelect}) {
+    console.log("In SearchBar");
+    const handleChange = (event, value) => {
+        // value = event.target.value;
+        onSelect(value);
+        console.log(value);
+    };
     return (
         <Autocomplete
             disablePortal
@@ -14,6 +19,7 @@ function SearchBar({ placeholder, data }) {
             sx={{ width: 300 }}
             renderInput={(params) =><TextField {...params} placeholder={placeholder} />}
             getOptionLabel={(option) => option.Address}
+            onChange={handleChange}
         />
     );
 }

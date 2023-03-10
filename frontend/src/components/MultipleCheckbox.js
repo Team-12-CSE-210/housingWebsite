@@ -30,6 +30,7 @@ class MultipleCheckbox extends React.Component {
       target: { value },
     } = event;
     console.log(value);
+    this.props.onSelect(value);
     this.setState({count : value});
   };
   render() {

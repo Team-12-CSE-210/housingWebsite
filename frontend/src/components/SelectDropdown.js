@@ -14,7 +14,7 @@ class SelectDropdown extends React.Component {
         const {
             target: { value },
           } = event;
-        console.log(value);
+        this.props.onSelect(value);
         this.setState({count : value});
     };   
     render() {
@@ -31,7 +31,7 @@ class SelectDropdown extends React.Component {
                 label={this.state.InputLabel}
                 >
                 <MenuItem value="">
-                    <em>None</em>
+                    <em>Clear</em>
                 </MenuItem>
                 {this.state.types.map((type) => (
                     <MenuItem value={type}>{type}</MenuItem>
