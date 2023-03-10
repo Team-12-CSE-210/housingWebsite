@@ -1,15 +1,24 @@
 import React from "react";
 import '../styles/ListingPage.css';
+<<<<<<< HEAD
 import FormData from 'form-data';
 import axios from 'axios'
 
+=======
+>>>>>>> c3f967a (Merged main branch manually)
 class ListingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
             propertyName: "",
+<<<<<<< HEAD
             description: "",
             availabilityDate: new Date().toISOString().slice(0, 10),
+=======
+            propertyImages: [],
+            description: "",
+            availabilityDate: new Date().toLocaleDateString('en-CA'),
+>>>>>>> c3f967a (Merged main branch manually)
             address: "",
             price: 0,
             sqft: 0,
@@ -21,9 +30,12 @@ class ListingPage extends React.Component {
             hasLaundry: false,
             hasFurnishings: false,
             hasAC: false,
+<<<<<<< HEAD
             hasKitchen: false,
             allowsPets: false,
             hasParking: false,
+=======
+>>>>>>> c3f967a (Merged main branch manually)
             landlordName: "",
             phone: "",
             email: "",

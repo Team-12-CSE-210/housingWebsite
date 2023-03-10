@@ -1,7 +1,8 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+.App{
+  display: flex;
+  flex-direction: column;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
