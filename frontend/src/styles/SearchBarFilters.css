@@ -1,4 +1,8 @@
-.SearchBarFilters{
-    display: flex;
-    flex-direction: row;
-  }
+.SearchBarFilters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 13%;
+  margin-right: 13%;
+}
