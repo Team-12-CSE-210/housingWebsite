@@ -112,8 +112,8 @@ class ListingPage extends React.Component {
     
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div class="row">
+            <form onSubmit={this.handleSubmit} className="propcontainer">
+                <div class="row" >
                     <div class="column">
                         <p>
                             <label>Property Name</label>
@@ -129,12 +129,12 @@ class ListingPage extends React.Component {
                             <textarea name="description" rows="8" value={this.state.description} onChange={this.handleChange} required/>
                         </p>
                     </div>
-                    <div class="column">
-                        <p>
+                    <div class="column" >
+                        <p className="right">
                             <label>Address</label>
                             <input name="address" type="text" value={this.state.address} onChange={this.handleChange} required/>
                         </p>
-                        <p>
+                        <p className="right">
                             <label for="price">Price (USD)</label>
                             <input name="price" type="number" value={this.state.price} onChange={this.handleChange} required/>
                             <label for="sqft">sqft</label>
@@ -143,7 +143,7 @@ class ListingPage extends React.Component {
                             <input name="bedrooms" type="number" value={this.state.bedrooms} onChange={this.handleChange} required/>
                             <input name="bathrooms" type="number" value={this.state.bathrooms} onChange={this.handleChange} required/>
                         </p>
-                        <p>
+                        <p className="right">
                             <label>Property Type</label>
                             <select name="propertyType" value={this.state.propertyType} onChange={this.handleChange} required>
                                 <option value="apartment">Apartment</option>
@@ -152,7 +152,7 @@ class ListingPage extends React.Component {
                                 <option value="townhouse">Townhouse</option>
                             </select>
                         </p>
-                        <p>
+                        <p className="right">
                             <label>Availability Date</label>
                             <input name="availabilityDate" type="date" value={this.state.availabilityDate} onChange={this.handleChange} required/>
                         </p>

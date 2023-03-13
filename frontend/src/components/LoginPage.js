@@ -35,7 +35,7 @@ function LoginPage({handleCurrUser}) {
     return (
         <div className='loginBox'>
             <h1>Login</h1>
-            <form className="inputForm" onSubmit={handleSubmit}>
+            <form className="propcontainer" onSubmit={handleSubmit}>
                 <label> Email </label>
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
 

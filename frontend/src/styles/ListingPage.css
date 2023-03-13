@@ -31,7 +31,7 @@
 
 label {
     float: left;
-    width: 120px;
+    /* width: 120px; */
     padding: 0 4% 0 1%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -41,8 +41,8 @@ label {
 
 label[for=sqft] {
     float: none;
-    padding: 0 0.5% 0 3%;
-    text-align: right;
+    /* padding: 0 0.5% 0 3%; */
+    text-align: left;
 }
 
 label[for=bdba] {
@@ -71,7 +71,7 @@ input {
 }
 
 input[name=price] {
-    width: 13.5%;
+    width: 7%;
     margin-right: calc(28.5% - 120px);
 
 }
@@ -153,9 +153,38 @@ p {
     padding-left: 15%;
 }
 
-input[name="propertyName"] {
+/* input {
     margin: 5px;
     border: 1px solid;
     border-radius: 10px;
 }
+textarea {
+    margin: 5px;
+    border: 1px solid;
+    border-radius: 10px;
+} */
 
+.right {
+    margin-bottom: 50px;
+    padding-right: 15%;
+}
+
+
+.propcontainer {
+    margin-left: 13%;
+    margin-right: 13%;
+    padding: 3%;
+    /* max-width: 1000px */
+    /* column-count: 2; */
+    column-fill: auto;
+    /* border: solid 3px; */
+    border-color: #cdcdcd;
+    padding-top: 20px;
+    border-radius: 18px;
+    border: none;
+    display: border-box;
+    background: #f5f5f7;
+    box-shadow: 8px 8px 16px 0 rgb(0 0 0 / 8%);
+    margin-top: 2%;
+    
+  }
