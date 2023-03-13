@@ -4,6 +4,11 @@
     clear: both;
 }
 
+.margin {
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
 .column {
     float: left;
     width: 50%;
@@ -144,5 +149,13 @@ input::-webkit-inner-spin-button {
 }
 
 p {
-    margin-bottom: 50px
+    margin-bottom: 50px;
+    padding-left: 15%;
 }
+
+input[name="propertyName"] {
+    margin: 5px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+

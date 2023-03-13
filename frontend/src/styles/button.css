@@ -1,9 +1,10 @@
 .pagination {
-  display: inline-block;
+  display: inline-block !important;
+  padding-left: 45% !important;
 }
 
 .pagination button {
-  color: #A2ABCB;
+  color: #212529;
   float: left;
   padding: 8px 16px;
   text-decoration: none;
@@ -11,7 +12,7 @@
 }
 
 .pagination button.active {
-  background-color: #A2ABCB;
+  background-color: #212529;
   color: white;
   border-radius: 5px;
 }
