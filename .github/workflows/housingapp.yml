@@ -26,6 +26,9 @@ jobs:
     - name: backend dependencies installation
       run: npm install
       working-directory: backend
+    - name: database initialization
+      run: node populate_db.js
+      working-directory: backend
     - name: backend test
       run: npm test
       working-directory: backend
