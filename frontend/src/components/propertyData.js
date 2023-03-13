@@ -7,7 +7,7 @@ class PropertyData extends React.Component {
         super(props);
         const queryParameters = new URLSearchParams(window.location.search)
         const type = queryParameters.get("prop_id")
-        this.state = { propId: type, propInfo: {}, userLoggedIn: true, review: false, fav: false, apply: false, rating: 0, applyMessage: false, favMessage: false, reviewList: [],revText:'',revRating:0 };
+        this.state = { propId: type, propInfo: {}, userLoggedIn: true, review: false, fav: false, apply: false, rating: 0, applyMessage: false, favMessage: false, reviewList: [], revText: '', revRating: 0 };
     }
     async componentDidMount() {
         const response = await fetch('http://localhost:8001/api/property-details?id=' + this.state.propId);
@@ -94,18 +94,18 @@ class PropertyData extends React.Component {
     review = async () => {
         this.setState({ review: true });
     }
-    updateInputValue = async(evt,field)=>{
+    updateInputValue = async (evt, field) => {
         const val = evt.target.value;
-        if(field==='text'){
+        if (field === 'text') {
             this.setState({ revText: val });
         }
-        if(field=='rating'){
+        if (field == 'rating') {
             this.setState({ revRating: val });
         }
     }
-    addReview = async ()=>{
-        if(this.state.revRating<0 || this.state.revRating>5){
-            this.setState({error:true,errorMessage:"Please enter a valid rating between 1 and 5"});
+    addReview = async () => {
+        if (this.state.revRating < 0 || this.state.revRating > 5) {
+            this.setState({ error: true, errorMessage: "Please enter a valid rating between 1 and 5" });
             return;
         }
         const data = {
@@ -124,7 +124,7 @@ class PropertyData extends React.Component {
         }
         alert("Review has been submitted");
         const response = await fetch('http://localhost:8001/api/add-to-reviews', config)
-        this.setState({ error:false,review: false });
+        this.setState({ error: false, review: false });
         const config1 = {
             method: 'GET',
             headers: {
@@ -145,58 +145,151 @@ class PropertyData extends React.Component {
     }
     render() {
         return (
-            <div>
-                <div >
-                    <div className="container">
-                        <h4><b>{this.state.propInfo.name}</b></h4>
-                        <p>{this.state.propInfo.address}</p>
-                        <p>Price: {this.state.propInfo.price} USD</p>
-                        <p>{this.state.propInfo.description} </p>
-                        <p>Rating: {this.state.rating} </p>
+            // <div>
+            //     <div >
+            //         <div className="container">
+            //             <h4><b>{this.state.propInfo.name}</b></h4>
+            //             <p>{this.state.propInfo.address}</p>
+            //             <p>Price: {this.state.propInfo.price} USD</p>
+            //             <p>{this.state.propInfo.description} </p>
+            //             <p>Rating: {this.state.rating} </p>
+            //         </div>
+            //     </div>
+            //     <div className="carousel" align='center'>
+            //         <DemoCarousel id = {this.state.propId}></DemoCarousel>
+            //     </div>
+            // <h1>List of reviews</h1>
+            // <div>
+            //     {this.state.reviewList.map(item=>(
+            //     <p>{item}</p>
+            // ))}
+            // </div>
+            //     <div className='parent' align='right'>
+            //         <div className="child">
+            //             <div className="container">
+            //                 <h1>Features</h1>
+            //                 <p>Kitchen: {this.state.propInfo.kitchen ? 'Yes' : 'No'}</p>
+            //                 <p>Bathroom: {this.state.propInfo.number_bathroom}</p>
+            //                 <p>Bedroom: {this.state.propInfo.number_bedroom}</p>
+            //                 <p>Parking: {this.state.propInfo.parking ? 'Yes' : 'No'}</p>
+            //                 <p>Pets: {this.state.propInfo.pets ? 'Yes' : 'No'}</p>
+            //                 <p>Pool: {this.state.propInfo.pool ? 'Yes' : 'No'}</p>
+            //                 <p>Gym: {this.state.propInfo.gym ? 'Yes' : 'No'}</p>
+            //             </div>
+            //         </div>
+            //         <div className="child">
+            //             {this.state.userLoggedIn && <div align='center' >
+            //                 {!this.state.fav && <button onClick={event => this.addToFav()}>Add to favourites</button>}
+            //                 {this.state.fav && <button type="button" disabled>Added to favourites</button>}
+            //                 {this.state.favMessage && <p>This property has been added to your favourites</p>}
+            //                 <br></br><br></br>
+            //                 {!this.state.apply && <button onClick={event => this.apply()}>Apply</button>}
+            //                 {this.state.apply && <button type="button" disabled>Applied to this property</button>}
+            //                 {this.state.applyMessage && <p>Your application has been sent</p>}
+            //                 <br></br><br></br>
+            //                 {!this.state.review && <button onClick={event => this.review()}>Give a review</button>}
+            //                 {this.state.review && <input className="myclass"value={this.state.revText} onChange={evt => this.updateInputValue(evt,'text')}></input>}
+            //                 {this.state.review && <input type ="number"className="myclass"value={this.state.revRating} onChange={evt => this.updateInputValue(evt,'rating')}></input>}
+            //                 {this.state.error && <p>{this.state.errorMessage}</p>}
+            //                 {this.state.review && <button onClick={event => {this.addReview()}}>Submit</button>}
+            //             </div>}
+            //         </div>
+
+            //     </div>
+            //     <GoogleApiWrapper name={this.state.propInfo.name} lat={this.state.propInfo.latitude} lng={this.state.propInfo.longitude}></GoogleApiWrapper>
+            // </div>
+
+            <div className='propcontainer'>
+                <div className='column-1' >
+                    {/* <div className="container" align='center'> */}
+                    <div className="carousel" align='center'>
+                        <DemoCarousel id={this.state.propId}></DemoCarousel>
                     </div>
+                    {/* </div> */}
                 </div>
-                <div className="carousel" align='center'>
-                    <DemoCarousel id = {this.state.propId}></DemoCarousel>
-                </div>
-                <h1>List of reviews</h1>
-                <div>
-                    {this.state.reviewList.map(item=>(
-                    <p>{item}</p>
-                ))}
-                </div>
-                <div className='parent' align='right'>
-                    <div className="child">
-                        <div className="container">
-                            <h1>Features</h1>
-                            <p>Kitchen: {this.state.propInfo.kitchen ? 'Yes' : 'No'}</p>
-                            <p>Bathroom: {this.state.propInfo.number_bathroom}</p>
-                            <p>Bedroom: {this.state.propInfo.number_bedroom}</p>
-                            <p>Parking: {this.state.propInfo.parking ? 'Yes' : 'No'}</p>
-                            <p>Pets: {this.state.propInfo.pets ? 'Yes' : 'No'}</p>
-                            <p>Pool: {this.state.propInfo.pool ? 'Yes' : 'No'}</p>
-                            <p>Gym: {this.state.propInfo.gym ? 'Yes' : 'No'}</p>
+
+
+                <div className='column-2'>
+
+                    <div className="prop_data">
+                        <h1>{this.state.propInfo.name}</h1>
+                        <h2>{this.state.propInfo.address} </h2>
+
+                    </div>
+
+                    <div className='detail'>
+                        <div className='detail_inside'>
+                            <span className='s1'> $ {this.state.propInfo.price} </span>
+                            <span className='s2'> Monthly Rent  </span>
+                        </div>
+
+                        {/* <p>{this.state.propInfo.description} </p> */}
+
+                        <div className='detail_inside'>
+                            <span className='s1'>  {this.state.rating}.0 / 5.0 </span>
+                            <span className='s2'> Rating Star </span>
+                        </div>
+
+                        <div className='detail_inside'>
+                            <span className='s1'> {this.state.propInfo.number_bedroom} </span>
+                            <span className='s2'> Bedroom </span>
+                        </div>
+
+                        <div className='detail_inside'>
+                            <span className='s1'> {this.state.propInfo.number_bathroom} </span>
+                            <span className='s2'> Bathroom </span>
                         </div>
                     </div>
-                    <div className="child">
-                        {this.state.userLoggedIn && <div align='center' >
-                            {!this.state.fav && <button onClick={event => this.addToFav()}>Add to favourites</button>}
-                            {this.state.fav && <button type="button" disabled>Added to favourites</button>}
-                            {this.state.favMessage && <p>This property has been added to your favourites</p>}
-                            <br></br><br></br>
-                            {!this.state.apply && <button onClick={event => this.apply()}>Apply</button>}
-                            {this.state.apply && <button type="button" disabled>Applied to this property</button>}
-                            {this.state.applyMessage && <p>Your application has been sent</p>}
-                            <br></br><br></br>
-                            {!this.state.review && <button onClick={event => this.review()}>Give a review</button>}
-                            {this.state.review && <input className="myclass"value={this.state.revText} onChange={evt => this.updateInputValue(evt,'text')}></input>}
-                            {this.state.review && <input type ="number"className="myclass"value={this.state.revRating} onChange={evt => this.updateInputValue(evt,'rating')}></input>}
-                            {this.state.error && <p>{this.state.errorMessage}</p>}
-                            {this.state.review && <button onClick={event => {this.addReview()}}>Submit</button>}
-                        </div>}
+
+                    <div className='detail_inside_2 prop_data_2'>
+                        <h1>Features</h1>
+                        <div className="detail_insider">
+                            <li>Kitchen:      {this.state.propInfo.kitchen ? 'Yes' : 'No'}</li>
+                            <li>Parking:      {this.state.propInfo.parking ? 'Yes' : 'No'}</li>
+                            <li>Pets: {this.state.propInfo.pets ? 'Yes' : 'No'}</li>
+                            <li>Pool: {this.state.propInfo.pool ? 'Yes' : 'No'}</li>
+                            <li>Gym: {this.state.propInfo.gym ? 'Yes' : 'No'}</li>
+                        </div>
                     </div>
+
+                    {/* <div className="detail"> */}
+                    {this.state.userLoggedIn && <div align='center' >
+                        {!this.state.fav && <button onClick={event => this.addToFav()}>Add to favourites</button>}
+                        {this.state.fav && <button type="button" disabled>Added to favourites</button>}
+                        {this.state.favMessage && <p>This property has been added to your favourites</p>}
+                        <br></br><br></br>
+                        {!this.state.apply && <button onClick={event => this.apply()}>Apply</button>}
+                        {this.state.apply && <button type="button" disabled>Applied to this property</button>}
+                        {this.state.applyMessage && <p>Your application has been sent</p>}
+                        <br></br><br></br>
+                        {!this.state.review && <button onClick={event => this.review()}>Give a review</button>}
+                        {this.state.review && <input className="myclass" value={this.state.revText} onChange={evt => this.updateInputValue(evt, 'text')}></input>}
+                        {this.state.review && <input type="number" className="myclass" value={this.state.revRating} onChange={evt => this.updateInputValue(evt, 'rating')}></input>}
+                        {this.state.error && <p>{this.state.errorMessage}</p>}
+                        {this.state.review && <button onClick={event => { this.addReview() }}>Submit</button>}
+                    </div>}
+                    {/* </div> */}
                     
+                    <h1>List of reviews</h1>
+                    <div>
+                        {this.state.reviewList.map(item => (
+                            <p>{item}</p>
+                        ))}
+                    </div>
+                    <div>
+                        {this.state.reviewList.map(item => (
+                            <p>{item}</p>
+                        ))}
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <GoogleApiWrapper name={this.state.propInfo.name} lat={this.state.propInfo.latitude} lng={this.state.propInfo.longitude}></GoogleApiWrapper>
                 </div>
-                <GoogleApiWrapper name={this.state.propInfo.name} lat={this.state.propInfo.latitude} lng={this.state.propInfo.longitude}></GoogleApiWrapper>
+
             </div>
         )
     }
