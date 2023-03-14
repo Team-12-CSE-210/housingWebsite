@@ -32,24 +32,26 @@ function SignUpPage() {
 
     return (
         <div className='signUpBox'>
-            <h1>Sign Up</h1>
-            <form className="inputForm" onSubmit={handleSubmit}>
+
+            <form className="propcontainer1" onSubmit={handleSubmit}>
+                <h1>Sign Up</h1>
+
                 <label> First Name </label>
-                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} required/>
+                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
 
                 <label> Last Name </label>
-                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required/>
+                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
 
-                <label> Phone Number </label>
-                <input type="tel" value={phoneNum} onChange={(e) => setPhoneNum(e.target.value)} required/>
+                {/* <label> Phone Number </label>
+                <input type="tel" value={phoneNum} onChange={(e) => setPhoneNum(e.target.value)} required /> */}
 
                 <label> Email </label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
 
                 <label> Password </label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
-
-                <button type="submit"> Submit </button>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <br></br>
+                <button type="submit"> Sign Up </button>
             </form>
         </div>
     );

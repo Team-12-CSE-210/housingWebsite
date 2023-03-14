@@ -15,6 +15,33 @@
 }
 
 .form label {
-    display: flex;
-    justify-content: center;
+    display: flex !important;
+    /* justify-content: center; */
+    grid-area: group;
 }
+
+.propcontainer1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+    width: 700px;
+    padding: 3%;
+    margin-left: 13%;
+    margin-right: 13%;
+    /* padding: 3%; */
+    /* max-width: 1000px */
+    /* column-count: 2; */
+    column-fill: auto;
+    /* border: solid 3px; */
+    border-color: #cdcdcd;
+    padding-top: 20px;
+    border-radius: 18px;
+    border: none;
+    display: border-box;
+    background: #f5f5f7;
+    box-shadow: 8px 8px 16px 0 rgb(0 0 0 / 8%);
+    margin-top: 2%;
+    
+  }

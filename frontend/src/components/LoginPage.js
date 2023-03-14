@@ -34,16 +34,19 @@ function LoginPage({handleCurrUser}) {
 
     return (
         <div className='loginBox'>
-            <h1>Login</h1>
-            <form className="propcontainer" onSubmit={handleSubmit}>
+            
+            <form className="propcontainer1" onSubmit={handleSubmit}>
+                <h1>Sign in</h1>
+
                 <label> Email </label>
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
 
                 <label> Password </label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
-
-                <button type="submit"> Submit </button>
+                <br></br>
+                <button type="submit"> Sign in </button>
             </form>
+
         </div>
     );
 }
