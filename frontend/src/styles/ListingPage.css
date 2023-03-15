@@ -1,20 +1,19 @@
-.row:after {
+/*.row:after {
     content: "";
     display: table;
     clear: both;
-}
+} */
 
 .margin {
     margin-left: 13%;
     margin-right: 13%;
 }
 
-.column {
-    float: left;
+/*.column {
     width: 50%;
-}
+} */
 
-.landlordcolumn {
+/* .landlordcolumn {
     float: left;
     width: 33%;
 }
@@ -27,21 +26,20 @@
     .landlordcolumn {
         width: 100%;
     }
-}
+}*/
+
 
 label {
-    float: left;
     /* width: 120px; */
-    padding: 0 4% 0 1%;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: right;
     font-size: 16px;
 }
 
+/*
 label[for=sqft] {
     float: none;
-    /* padding: 0 0.5% 0 3%; */
     text-align: left;
 }
 
@@ -49,13 +47,14 @@ label[for=bdba] {
     float: none;
     padding: 0 0.5% 0 3%;
     text-align: right;
-}
+}*/ 
 
 label[for=checkbox] {
     float:none;
     text-align: right;
-    padding-right: 0;
+    padding-right: 5px;
     position: relative;
+    font-size: 14px;
     top: -8px;
 }
 
@@ -64,13 +63,17 @@ label:after {
 }
 
 input {
-    width: calc(90% - 120px);
+    width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-input[name=price] {
+input[name=propertyImages] {
+    padding-left: 0;
+}
+/*input[name=price] {
     width: 7%;
     margin-right: calc(28.5% - 120px);
 
@@ -91,11 +94,7 @@ input[name=bathrooms] {
     width: 5%;
 }
 
-input[type=checkbox] {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 20px;
-}
+
 
 input[type=date] {
     width: calc(90.45% - 120px);
@@ -103,15 +102,23 @@ input[type=date] {
 
 input[name=landlordName] input[name=email] input[name=phone]{
     width: calc(90% - 120px);
+}*/
+input[type=checkbox] {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 17.5px;
 }
 
 textarea {
-    width: calc(90% - 120px);
+    width: 100%;
     resize: none;
 }
-
+text {
+    font-weight: bold;
+    font-size: 16.5px;
+}
 select {
-    width: calc(91% - 120px);
+    width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 5px;
@@ -131,9 +138,7 @@ input::-webkit-inner-spin-button {
 }
 
 .amenities {
-    margin: auto;
-    width: 50%;
-    text-align: center;
+    width: 100%;
 }
 
 .amenity {
@@ -171,15 +176,15 @@ textarea {
 
 
 .propcontainer {
-    margin-left: 13%;
-    margin-right: 13%;
+    margin-left: 30%;
+    margin-right: 30%;
     padding: 3%;
     /* max-width: 1000px */
     /* column-count: 2; */
     column-fill: auto;
     /* border: solid 3px; */
     border-color: #cdcdcd;
-    padding-top: 20px;
+    padding-top: 50px;
     border-radius: 18px;
     border: none;
     display: border-box;

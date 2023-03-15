@@ -106,6 +106,7 @@ class ListingPage extends React.Component {
         
         Promise.all([resList, resImg]).then(() => {
             console.log("done");
+            alert("Your listing has been")
         });
     }
 
@@ -115,53 +116,88 @@ class ListingPage extends React.Component {
             <form onSubmit={this.handleSubmit} className="propcontainer">
                 <div class="row" >
                     <div class="column">
-                        <p>
+                        <text>Property Details:</text>
+                        <br/>
+                        <br/>
+                        <div>
                             <label>Property Name</label>
+                            <br/>
                             <input name="propertyName" type="text" value={this.state.propertyName} onChange={this.handleChange} required/>
-                        </p>
-                        <p>
+                        </div>
+                        <br/>
+                        <div>
                             <label>Attach images</label>
+                            <br/>
                             <input type="file" id="img" name="propertyImages" accept="image/*" multiple onChange={this.handleFiles} required/>
-
-                        </p>
-                        <p>
+                        </div>
+                        <br/>
+                        <div>
                             <label>Description</label>
+                            <br/>
                             <textarea name="description" rows="8" value={this.state.description} onChange={this.handleChange} required/>
-                        </p>
-                    </div>
-                    <div class="column" >
-                        <p className="right">
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <text>Property Information:</text>
+                        <br/>
+                        <br/>
+                        <div>
                             <label>Address</label>
+                            <br/>
                             <input name="address" type="text" value={this.state.address} onChange={this.handleChange} required/>
-                        </p>
-                        <p className="right">
+                        </div>
+                        <br/>
+                        <div>
                             <label for="price">Price (USD)</label>
+                            <br/>
                             <input name="price" type="number" value={this.state.price} onChange={this.handleChange} required/>
-                            <label for="sqft">sqft</label>
+                        </div>
+                        <br/>
+                        <div>
+                            <label for="sqft">Square footage (sqft)</label>
+                            <br/>
                             <input name="sqft" type="number" value={this.state.sqft} onChange={this.handleChange} required/>
-                            <label for="bdba">bd/ba</label>
+                        </div>
+                        <br/>
+                        <div>
+                            <label for="bdba">Number of bedrooms (bd)</label>
+                            <br/>
                             <input name="bedrooms" type="number" value={this.state.bedrooms} onChange={this.handleChange} required/>
+                            
+                            
+                        </div>
+                        <br/>
+                        <div>
+                            <label for="bdba">Number of bathrooms (ba)</label>
+                            <br/>
                             <input name="bathrooms" type="number" value={this.state.bathrooms} onChange={this.handleChange} required/>
-                        </p>
-                        <p className="right">
+                        </div>
+                        <br/>
+                        <div>
                             <label>Property Type</label>
+                            <br/>
                             <select name="propertyType" value={this.state.propertyType} onChange={this.handleChange} required>
                                 <option value="apartment">Apartment</option>
                                 <option value="condo">Condo</option>
                                 <option value="house">House</option>
                                 <option value="townhouse">Townhouse</option>
                             </select>
-                        </p>
-                        <p className="right">
+                        </div>
+                        <br/>
+                        <div>
                             <label>Availability Date</label>
+                            <br/>
                             <input name="availabilityDate" type="date" value={this.state.availabilityDate} onChange={this.handleChange} required/>
-                        </p>
+                        </div>
                     </div>
                 </div>
+                <br/>
                 <div class="amenities">
                     <div class="amenity">
-                        <label for="checkbox">Amenities</label>
+                        <label>Amenities</label>
                     </div>
+                    <br/>
                     <div class="amenity">
                         <label for="checkbox">Gym</label>
                         <input
@@ -219,22 +255,32 @@ class ListingPage extends React.Component {
                             onChange={this.handleChange}/>
                     </div>
                 </div>
-                <p>
-                    <div class="row">
-                        <div class="landlordcolumn left">
-                            <label>Your Name</label>
-                            <input name="landlordName" type="text" value={this.state.landlordName} onChange={this.handleChange} required/>
-                        </div>
-                        <div class="landlordcolumn mid">
-                            <label>Phone</label>
-                            <input name="phone" type="tel" value={this.state.phone} onChange={this.handleChange} required/>
-                        </div>
-                        <div class="landlordcolumn right">
-                            <label>Email</label>
-                            <input name="email" type="email" value={this.state.email} onChange={this.handleChange} required/>
-                        </div>
+                <br/>
+                <br/>
+                <br/>
+                <div>
+                    <text>Contact Information:</text>
+                    <br/>
+                    <br/>
+                    <div>
+                        <label>Your Name</label>
+                        <br/>
+                        <input name="landlordName" type="text" value={this.state.landlordName} onChange={this.handleChange} required/>
                     </div>
-                </p>
+                    <br/>
+                    <div>
+                        <label>Phone</label>
+                        <br/>
+                        <input name="phone" type="tel" value={this.state.phone} onChange={this.handleChange} required/>
+                    </div>
+                    <br/>
+                    <div>
+                        <label>Email</label>
+                        <br/>
+                        <input name="email" type="email" value={this.state.email} onChange={this.handleChange} required/>
+                    </div>
+                </div>
+                <br/>
                 <div class="submit">
                     <input type="submit" value="Submit"/>
                 </div>
