@@ -113,7 +113,7 @@ class ListingPage extends React.Component {
     
     render() {
         return (
-            <form onSubmit={this.handleSubmit} className="propcontainer">
+            <form onSubmit={this.handleSubmit} className="propdetainer">
                 <div class="row" >
                     <div class="column">
                         <text>Property Details:</text>
