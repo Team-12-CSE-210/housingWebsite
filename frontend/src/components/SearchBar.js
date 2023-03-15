@@ -19,13 +19,13 @@ function SearchBar({ placeholder, onSelect, handleSearch }) {
         <>
         <TextField 
             id = "searchBar"
-            style={{maxWidth: '275px', maxHeight: '70px', minWidth: '275px', minHeight: '50px'}}
+            style={{maxWidth: '500px', maxHeight: '70px', minWidth: '500px', minHeight: '50px'}}
             sx = {{m:1}}
             placeholder = {placeholder}
             margin = "normal"
             onChange = {handleChange}
         />
-            <Button
+            {/* <Button
                 variant="contained"
                 color="primary"
                 style = {{maxWidth: '100px', maxHeight: '70px', minWidth: '100px', minHeight: '50px'}}
@@ -33,7 +33,7 @@ function SearchBar({ placeholder, onSelect, handleSearch }) {
                 onClick={handleSearch}
                 endIcon = {<SearchIcon/>}>
                 Search
-            </Button>
+            </Button> */}
         </>
     );
 }

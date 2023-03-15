@@ -27,7 +27,7 @@ function PriceSelect({onSelect}) {
                 setPriceRangeValue([Number(e.target.value), priceRangeValue[1]]);
               }}
             />
-            <Typography>-</Typography>
+            {/* <Typography>-</Typography> */}
             <TextField
           label="max Price"
           type="number"

@@ -6,6 +6,10 @@ import SelectDropdown from './SelectDropdown';
 import RatingSelectVariants from './Rating';
 import MultipleCheckbox from './MultipleCheckbox';
 import PriceSelect from './PriceSelect';
+import SearchIcon from "@material-ui/icons/Search";
+import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import CloseIcon from "@material-ui/icons/Close";
 
 class SearchBarFilters extends React.Component{
   constructor(props){
@@ -120,6 +124,15 @@ class SearchBarFilters extends React.Component{
         <SelectDropdown Name="Bed" types={this.state.number} InputLabel="# of Bed" onSelect={this.handleBed}></SelectDropdown>
         <SelectDropdown Name="Bath" types={this.state.number} InputLabel="# of Bath" onSelect={this.handleBath}></SelectDropdown>
         <MultipleCheckbox Name="Amenities" types={this.state.amenities} onSelect={this.handleAmenties}> </MultipleCheckbox>
+        <Button
+                variant="contained"
+                color="primary"
+                style = {{maxWidth: '100px', maxHeight: '70px', minWidth: '100px', minHeight: '50px'}}
+                sx = {{m:1}}
+                onClick={this.handleSearch}
+                endIcon = {<SearchIcon/>}>
+                Search
+            </Button>
       </div>
     );
   }

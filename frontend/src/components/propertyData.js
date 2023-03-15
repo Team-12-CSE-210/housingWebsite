@@ -226,7 +226,7 @@ class PropertyData extends React.Component {
                         {/* <p>{this.state.propInfo.description} </p> */}
 
                         <div className='detail_inside'>
-                            <span className='s1'>  {this.state.rating}.0 / 5.0 </span>
+                            <span className='s1'>  {this.state.rating ? this.state.rating : 0}.0 / 5.0 </span>
                             <span className='s2'> Rating Star </span>
                         </div>
 
@@ -254,15 +254,16 @@ class PropertyData extends React.Component {
 
                     {/* <div className="detail"> */}
                     {this.state.userLoggedIn && <div align='center' >
-                        {!this.state.fav && <button onClick={event => this.addToFav()}>Add to favourites</button>}
+                        <br></br>
+                        {!this.state.fav && <button onClick={event => this.addToFav()} className="fav_btn">Add to favourites</button>}
                         {this.state.fav && <button type="button" disabled>Added to favourites</button>}
                         {this.state.favMessage && <p>This property has been added to your favourites</p>}
                         <br></br><br></br>
-                        {!this.state.apply && <button onClick={event => this.apply()}>Apply</button>}
+                        {!this.state.apply && <button onClick={event => this.apply()} className="apply">Apply</button>}
                         {this.state.apply && <button type="button" disabled>Applied to this property</button>}
                         {this.state.applyMessage && <p>Your application has been sent</p>}
-                        <br></br><br></br>
-                        {!this.state.review && <button onClick={event => this.review()}>Give a review</button>}
+                        <br></br>
+                        {!this.state.review && <button onClick={event => this.review()} className="review">Give a review</button>}
                         {this.state.review && <input className="myclass" value={this.state.revText} onChange={evt => this.updateInputValue(evt, 'text')}></input>}
                         {this.state.review && <input type="number" className="myclass" value={this.state.revRating} onChange={evt => this.updateInputValue(evt, 'rating')}></input>}
                         {this.state.error && <p>{this.state.errorMessage}</p>}
@@ -276,11 +277,11 @@ class PropertyData extends React.Component {
                             <p>{item}</p>
                         ))}
                     </div>
-                    <div>
+                    {/* <div>
                         {this.state.reviewList.map(item => (
                             <p>{item}</p>
                         ))}
-                    </div>
+                    </div> */}
                     <br></br>
                     <br></br>
                     <br></br>

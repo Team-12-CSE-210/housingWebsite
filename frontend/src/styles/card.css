@@ -326,4 +326,53 @@ img {
   font-size: 1.5em;
 }
 
+.fav_btn{
+  background-color: #cf245f;
+    background-image: linear-gradient(to bottom right, #fcd34d, #ef4444, #ec4899);
+    border: 0;
+    border-radius: 0.5rem;
+    width: 10%;
+    height: 10%;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
 
+.apply {
+  background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-size: 16px;
+    justify-content: center;
+    /* padding: 1rem 1.75rem; */
+    text-decoration: none;
+    width: 10%;
+    height: 10%;
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.review {
+  background-color: #fff000;
+    border-radius: 0.5rem;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    /* padding: 10px 15px; */
+    text-align: center;
+    transition: 200ms;
+    width: 10%;
+    height: 10%;
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
